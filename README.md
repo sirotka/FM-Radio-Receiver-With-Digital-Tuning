@@ -20,8 +20,8 @@ FM radio receiver with digital tuning
 ### Popis funkce jednotlivý komponent
 
 _FM modul_
-- příjem FM signálu a následné jeho zpracování
-
+- příjem FM signálu pomocí sluchátek připojených k 3.5mm konektoru
+- zpracování analogového signálu na digitální
 
 _Displej_
 použitý displej by měl být schopen zobrazit:
