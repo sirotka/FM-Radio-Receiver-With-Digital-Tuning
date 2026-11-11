@@ -5,13 +5,16 @@ FM radio receiver with digital tuning
 Členové týmu
 
 1. Ekaterina Krupenkko (zodpovědná za )
-2. Lacek (zodpovědný za )
-3. Vojtěch Kudela (zodpovědný za)
+2. Rostislav Lacek (zodpovědný za )
+4. Vojtěch Kudela (zodpovědný za)
 
 
-# Požadavky na projekt
+# Požadavky
 
-1. Schéma zapojení
+1. schéma zapojení
+2. popis jednotlivých částí
+3. plakát
+
 
 ## Co chceme, aby umělo
 1. příjem FM signálu, jeho zpracování
