@@ -15,11 +15,28 @@ FM radio receiver with digital tuning
 | **Raspberry Pi Pico** | RP2040 mikrokontrolér | Hlavní řídicí jednotka |
 | **FM Modul** | Si4703 FM Tuner | I2C |
 | **Displej** | |  |
-|  |  |  |
+| **Reprák** |  |  |
+| **Sluchátka** |  |  |
 
 ### Popis funkce jednotlivý komponent
 
-__Tlačítka__
+_FM modul_
+- příjem FM signálu a následné jeho zpracování
+
+
+_Displej_
+použitý displej by měl být schopen zobrazit:
+- aktuálně naladěnou frekvenci
+- úroveň hlasitosti
+- zobrazení jména stanice (pokud je možno), případně i aktuálně hrané skladby
+
+_Tlačítka_
+- 2 tlačítka (levé horní a dolní) budou sloužit k nastavení hlasitosti (VOL+ a VOL-)
+- 2 tlačítka (pravé hodní a dolní) budou určena k ladění (UP a DOWN)
+- prostřední tlačítko bude sloužit k potvrzování
+
+něco navíc 
+- použít i něco dalšího, co nabízí laboratoř a pomocí toho zjišťovat sílu signálu
 
 # Požadavky
 
