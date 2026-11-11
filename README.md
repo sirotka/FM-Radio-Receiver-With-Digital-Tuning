@@ -1,6 +1,14 @@
 # Pico-W-MicroPython-group-projects
 FM radio receiver with digital tuning
 
+
+Členové týmu
+
+1. Ekaterina Krupenkko (zodpovědná za )
+2. Lacek (zodpovědný za )
+3. Vojtěch Kudela (zodpovědný za)
+
+
 # Požadavky na projekt
 
 1. Schéma zapojení
