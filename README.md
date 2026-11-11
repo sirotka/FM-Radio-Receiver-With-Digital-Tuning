@@ -16,8 +16,8 @@ FM radio receiver with digital tuning
 3. plakát
 
 
-## Co chceme, aby umělo
-1. příjem FM signálu, jeho zpracování
+## 1. týden
+[x] příjem FM signálu, jeho zpracování
 
 ## Reference
 1. [Si4703 FM Radio Receiver Hookup Guide](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide).
