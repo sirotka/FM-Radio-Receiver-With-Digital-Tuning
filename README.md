@@ -10,8 +10,6 @@ FM radio receiver with digital tuning
 
 # Komponenty
 
-### Hardware Components
-
 | Komponenta | Popis / Specifikace | Rozhraní / Protokol |
 | :--- | :--- | :--- |
 | **Raspberry Pi Pico** | RP2040 mikrokontrolér | Hlavní řídicí jednotka |
@@ -19,16 +17,21 @@ FM radio receiver with digital tuning
 | **Displej** | |  |
 |  |  |  |
 
+### Popis funkce jednotlivý komponent
+
+__Tlačítka__
+
 # Požadavky
 
-1. schéma zapojení
-2. popis jednotlivých částí + co mají dělat
-3. plakát
+- [ ] Návrh blokového schématu
+- [ ] Sestavení na desku + otestování jednotlivých částí (test i součástí kódu)
+- [ ] Dokumentace (nastavení dokumentace přes Sphinx API)
+- [ ] Výstupy -> finální soubor v README, plakát a ukázkové video
 
 # Co je potřeba udělat
 
 ### 1. týden
-- [ ] schéma zapojení
+- [ ] Blokové schéma
 - [ ] kód pro tlačítka (zjistit, jak fungují + datasheet)
 - [ ] kód pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
 - [ ] kód pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
