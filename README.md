@@ -8,14 +8,22 @@ FM radio receiver with digital tuning
 2. Rostislav Lacek (zodpovědný za )
 4. Vojtěch Kudela (zodpovědný za)
 
-# Použité komponenty
+# Komponenty
+
+### Hardware Components
+
+| Komponenta | Popis / Specifikace | Rozhraní / Protokol |
+| :--- | :--- | :--- |
+| **Raspberry Pi Pico** | RP2040 mikrokontrolér | Hlavní řídicí jednotka |
+| **FM Modul** | Si4703 FM Tuner | I2C |
+| **Displej** | |  |
+|  |  |  |
 
 # Požadavky
 
 1. schéma zapojení
 2. popis jednotlivých částí + co mají dělat
 3. plakát
-
 
 # Co je potřeba udělat
 
@@ -24,6 +32,7 @@ FM radio receiver with digital tuning
 - [ ] kód pro tlačítka (zjistit, jak fungují + datasheet)
 - [ ] kód pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
 - [ ] kód pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
+
 
 ## Reference
 1. [Si4703 FM Radio Receiver Hookup Guide](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide).
