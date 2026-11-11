@@ -12,11 +12,10 @@ FM radio receiver with digital tuning
 
 | Komponenta | Popis / Specifikace | Rozhraní / Protokol |
 | :--- | :--- | :--- |
-| **Raspberry Pi Pico** | RP2040 mikrokontrolér | Hlavní řídicí jednotka |
-| **FM Modul** | Si4703 FM Tuner | I2C |
-| **Displej** | |  |
-| **Reprák** |  |  |
-| **Sluchátka** |  |  |
+| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 Dvoujádrový ARM Cortex-M0+ / 3.3V logická úroveň |
+| **FM Modul** | Si4703 FM Tuner | I2C + 3.5mm Jack |
+| **Displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) |
+| **3.5mm Sluchátka** | analogové audio | zdroj zvuku (funguje jako naténa) |
 
 ### Popis funkce jednotlivý komponent
 
