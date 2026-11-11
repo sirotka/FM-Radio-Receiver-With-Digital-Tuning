@@ -16,9 +16,10 @@ FM radio receiver with digital tuning
 2. popis jednotlivých částí + co mají dělat
 3. plakát
 
-Co je potřeba udělat
 
-## 1. týden
+# Co je potřeba udělat
+
+### 1. týden
 - [ ] schéma zapojení
 - [ ] kód pro tlačítka (zjistit, jak fungují + datasheet)
 - [ ] kód pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
