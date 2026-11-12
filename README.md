@@ -35,6 +35,12 @@ _Tlačítka_
 něco navíc 
 - použít i něco dalšího, co nabízí laboratoř a pomocí toho zjišťovat sílu signálu
 
+### Blokové schéma
+
+Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače a použitá rozhraní I²C, SPI, GPIO a ADC.
+
+![Blokové schéma FM přijímače](images/FMradio.drawio.png)
+
 ### Simulace ve Wokwi
 
 V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu.
@@ -43,7 +49,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 # Požadavky
 
-- [ ] Návrh blokového schématu
+- [x] Návrh blokového schématu
 - [ ] Sestavení na desku + otestování jednotlivých částí (test i součástí kódu)
 - [ ] Dokumentace (nastavení dokumentace přes Sphinx API)
 - [ ] Výstupy -> finální soubor v README, plakát a ukázkové video
