@@ -1,10 +1,8 @@
-# Pico-W-MicroPython-group-projects
-FM radio receiver with digital tuning
-
+# FM radio receiver with digital tuning
 
 Členové týmu
 
-1. Ekaterina Krupenkko (zodpovědná za )
+1. Ekaterina Krupenko (zodpovědná za simulaci ve Wokwi)
 2. Rostislav Lacek (zodpovědný za )
 4. Vojtěch Kudela (zodpovědný za)
 
@@ -52,6 +50,12 @@ něco navíc
 - [ ] kód pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
 - [ ] kód pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
 
+
+### Simulace ve Wokwi
+
+V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu.
+
+**Odkaz na simulaci:** https://wokwi.com/projects/480485965769085953
 
 ## Reference
 1. [Si4703 FM Radio Receiver Hookup Guide](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide).
