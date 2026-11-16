@@ -71,11 +71,17 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 # Plán práce
 
-### 1. týden
-- [ ] Blokové schéma
-- [ ] kód pro tlačítka (zjistit, jak fungují + datasheet)
-- [ ] kód pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
-- [ ] kód pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
+### 1. Týden
+- [x] Zjištění problematiky projektu a domluva na funkcích
+- [x] Založení GitLab repozitáře
+- [ ] Vytvoření seznamu komponent + přiložit odkazy a datasheety na github
+- [x] Návrh blokové schématu zapojení (případně jej pak upravit)
+
+### 2. Týden 
+- [ ] Vytvoření a otestování kódu pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
+- [ ] Vytvoření a otestování kódu pro tlačítka (zjistit, jak fungují + datasheet)
+- [ ] Vytvoření a otestování kódu pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
+- [ ] Nahrání funkčních testovacích skriptů do repozitáře
 
 
 ## Reference
