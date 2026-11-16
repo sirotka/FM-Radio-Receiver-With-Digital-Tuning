@@ -24,7 +24,7 @@ Srdcem rádiové části je integrovaný digitální tuner Si4703, který s mikr
 - _Hardwarová regulace hlasitosti_: Nastavení hlasitosti probíhá digitálně zápisem do vnitřních registrů čipu Si4703 (v rozsahu 0–15), čímž je zachována maximální kvalita výstupního signálu bez nutnosti vnějšího analogového potenciometru.
 - _Zvukový výstup a anténa_: Demodulovaný audio signál je vyveden přímo na integrovaný 3,5mm stereo jack modulu Si4703 pro připojení sluchátek nebo externího zesilovače. Stínění připojeného audio kabelu zároveň slouží jako přijímací FM anténa.
 
-_Manuální ladění frekvence (Rotační enkodér KY-040)_
+***_Manuální ladění frekvence (Rotační enkodér KY-040)_
 Pro plynulé a přesné manuální přelaďování stanic je použit inkrementální rotační enkodér KY-040 připojený na digitální vstupy CLK a DT.
 - _Obsluha v reálném čase_: Snímání otáčení je v MicroPythonu řešeno pomocí hardwarových přerušení (IRQ) na sestupnou/vzestupnou hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý mechanický krok enkodéru i při rychlém otáčení, bez ohledu na to, zda právě překresluje displej.
 - _Krokování frekvence_: Každý detekovaný pulz vpravo či vlevo posune naladěnou frekvenci o pevně definovaný krok (standardně **0,1 MHz**) a odešle příkaz k přeladění do modulu Si4703. Integrované tlačítko enkodéru (SW) lze volitelně využít pro rychlé ztlumení zvuku (Mute).
