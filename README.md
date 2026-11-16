@@ -6,6 +6,11 @@
 2. Rostislav Lacek (zodpovědný za )
 4. Vojtěch Kudela (zodpovědný za)
 
+## Teoretický popis a vysvětlení
+
+Běžné analogové FM přijímače postrádají přesné digitální ladění frekvence, vizuální zpětnou vazbu o naladěné stanici, dekódování doplňkových textových informací a pohodlnou správu uložených předvoleb. Návrh digitálního rádia vyžaduje přesnou časovou koordinaci mezi různými typy sběrnic a vstupů v reálném čase – konkrétně rychlé zpracování kvadraturních signálů z rotačního enkodéru, čtení analogových napěťových úrovní z tlačítkové matice, komunikaci s tunerem přes I2C a vykreslování grafiky přes SPI, aniž by docházelo ke zpoždění uživatelského rozhraní nebo výpadkům zvukového výstupu.
+
+
 # Komponenty
 
 | Komponenta | Popis / Specifikace | Rozhraní / Protokol |
