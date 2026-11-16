@@ -65,3 +65,6 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ## Reference
 1. [Si4703 FM Radio Receiver Hookup Guide](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide).
+2.[Graphic LCD 84x48 - Nokia 5110](https://www.sparkfun.com/graphic-lcd-84x48-nokia-5110.html?srsltid=AYCX9vJjXhDt5QJ6w0Y2h9K5h-A4lTs36XpI6SGyjpkp7JnMyYZRqbJC).
+3.[ADKeyboard v3](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html).
+
