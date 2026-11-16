@@ -20,7 +20,7 @@ Běžné analogové FM přijímače postrádají přesné digitální ladění f
 | **Displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) |
 | **3.5mm Sluchátka** | analogové audio | zdroj zvuku (funguje jako naténa) |
 
-### Popis funkce jednotlivý komponent
+## Popis funkce jednotlivý komponent
 
 ### _Příjem a zpracování FM signálu (Si4703 FM Radio Receiver)_
 Srdcem rádiové části je integrovaný digitální tuner Si4703, který s mikrokontrolérem komunikuje přes sběrnici I2C a řídicí resetovací pin.
