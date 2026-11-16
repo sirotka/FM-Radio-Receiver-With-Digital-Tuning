@@ -32,22 +32,22 @@ Pro plynulé a přesné manuální přelaďování stanic je použit inkrementá
 **Ovládání hlasitosti a správa předvoleb (ADKeyboard v3)**
 Modul ADKeyboard v3 sdružuje 5 mikrospínačů na jediný analogový výstup připojený na ADC0 (GP26) mikrokontroléru. Každé tlačítko spíná jiný odporový dělič, takže po stisku vznikne na vstupu ADC unikátní napěťová úroveň (v rozsahu 0–3,3 V). Software tyto hodnoty filtruje (ošetření zákmitů – *debouncing*) a rozděluje tlačítka do tří logických skupin:
 
-_Tlačítka 1 a 2 (VOL+ a VOL-)_: Slouží k přímé regulaci hlasitosti. Každý stisk inkrementuje nebo dekrementuje aktuální úroveň hlasitosti v registru čipu Si4703 a okamžitě aktualizuje indikátor na obrazovce.
+- _Tlačítka 1 a 2 (VOL+ a VOL-)_: Slouží k přímé regulaci hlasitosti. Každý stisk inkrementuje nebo dekrementuje aktuální úroveň hlasitosti v registru čipu Si4703 a okamžitě aktualizuje indikátor na obrazovce.
 
-_Tlačítka 3 a 4 (UP a DOWN – výběr ze seznamu)_: Slouží k listování (posunu kurzoru) v uloženém seznamu předvolených stanic na displeji. Samotné listování ještě nemění naladěnou frekvenci – uživatel si nejprve vybere požadovanou stanici z nabídky.
+- _Tlačítka 3 a 4 (UP a DOWN – výběr ze seznamu)_: Slouží k listování (posunu kurzoru) v uloženém seznamu předvolených stanic na displeji. Samotné listování ještě nemění naladěnou frekvenci – uživatel si nejprve vybere požadovanou stanici z nabídky.
 
-_Tlačítko 5 (prostřední tlačítko – OK / ENTER)_: Slouží k potvrzení výběru. Po jeho stisknutí systém načte frekvenci označené stanice ze seznamu předvoleb a okamžitě přeladí tuner Si4703 na tuto stanici.
+- _Tlačítko 5 (prostřední tlačítko – OK / ENTER)_: Slouží k potvrzení výběru. Po jeho stisknutí systém načte frekvenci označené stanice ze seznamu předvoleb a okamžitě přeladí tuner Si4703 na tuto stanici.
 
 **Uživatelské rozhraní (Graphic LCD 84×48 – Nokia 5110)**
 Vizuální zpětnou vazbu zajišťuje monochromatický grafický displej Nokia 5110 (řadič PCD8544) s rozlišením 84×48 pixelů, připojený přes rychlou sběrnici SPI0. Obrazovka je rozdělena do několika přehledných informačních zón:
 
-_Hlavní údaj o frekvenci_: Dominantní zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
+- _Hlavní údaj o frekvenci_: Dominantní zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
 
-_Identifikace stanice (RDS / Paměť)_: Řádek zobrazující název stanice dekódovaný ze signálu RDS (pokud je RDS k dispozici), případně uložený název z paměti předvoleb.
+- _Identifikace stanice (RDS / Paměť)_: Řádek zobrazující název stanice dekódovaný ze signálu RDS (pokud je RDS k dispozici), případně uložený název z paměti předvoleb.
 
-_Indikátor hlasitosti_: Grafický ukazatel (sloupcový graf nebo číselná hodnota VOL: 0–15) reagující na stisk tlačítek VOL+ / VOL-.
+- _Indikátor hlasitosti_: Grafický ukazatel (sloupcový graf nebo číselná hodnota VOL: 0–15) reagující na stisk tlačítek VOL+ / VOL-.
 
-_Seznam předvoleb (Preset List)_: Spodní část displeje zobrazuje položky ze seznamu uložených stanic s vizuálním kurzorem (zvýrazněním), který se pohybuje při ovládání tlačítky na ADKeyboard v3 a čeká na potvrzení prostředním tlačítkem.
+- _Seznam předvoleb (Preset List)_: Spodní část displeje zobrazuje položky ze seznamu uložených stanic s vizuálním kurzorem (zvýrazněním), který se pohybuje při ovládání tlačítky na ADKeyboard v3 a čeká na potvrzení prostředním tlačítkem.
 
 ### Blokové schéma
 
