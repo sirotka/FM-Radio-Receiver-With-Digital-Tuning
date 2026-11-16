@@ -17,23 +17,37 @@
 
 ### Popis funkce jednotlivý komponent
 
-_FM modul_
-- příjem FM signálu pomocí sluchátek připojených k 3.5mm konektoru
-- zpracování analogového signálu na digitální
+_Příjem a zpracování FM signálu (Si4703 FM Radio Receiver)_
+Srdcem rádiové části je integrovaný digitální tuner Si4703, který s mikrokontrolérem komunikuje přes sběrnici I2C a řídicí resetovací pin.
+- **Zpracování signálu**: Čip se stará o kompletní příjem, demodulaci a stereofonní dekódování FM signálu v pásmu 87,5–108,0 MHz
+- **Dekódování RDS (Radio Data System)**: Kromě samotného zvuku přijímač průběžně čte digitální datový tok RDS. Z něj software extrahuje PS (Program Service) – tedy oficiální název aktuálně poslouchané rozhlasové stanice (např. _EVROPA 2_, _ČRo 1_), který se následně předává k zobrazení na displej.
+- _Hardwarová regulace hlasitosti_: Nastavení hlasitosti probíhá digitálně zápisem do vnitřních registrů čipu Si4703 (v rozsahu 0–15), čímž je zachována maximální kvalita výstupního signálu bez nutnosti vnějšího analogového potenciometru.
+- _Zvukový výstup a anténa_: Demodulovaný audio signál je vyveden přímo na integrovaný 3,5mm stereo jack modulu Si4703 pro připojení sluchátek nebo externího zesilovače. Stínění připojeného audio kabelu zároveň slouží jako přijímací FM anténa.
 
-_Displej_
-použitý displej by měl být schopen zobrazit:
-- aktuálně naladěnou frekvenci
-- úroveň hlasitosti
-- zobrazení jména stanice (pokud je možno), případně i aktuálně hrané skladby
+_Manuální ladění frekvence (Rotační enkodér KY-040)_
+Pro plynulé a přesné manuální přelaďování stanic je použit inkrementální rotační enkodér KY-040 připojený na digitální vstupy CLK a DT.
+- _Obsluha v reálném čase_: Snímání otáčení je v MicroPythonu řešeno pomocí hardwarových přerušení (IRQ) na sestupnou/vzestupnou hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý mechanický krok enkodéru i při rychlém otáčení, bez ohledu na to, zda právě překresluje displej.
+- _Krokování frekvence_: Každý detekovaný pulz vpravo či vlevo posune naladěnou frekvenci o pevně definovaný krok (standardně **0,1 MHz**) a odešle příkaz k přeladění do modulu Si4703. Integrované tlačítko enkodéru (SW) lze volitelně využít pro rychlé ztlumení zvuku (Mute).
 
-_Tlačítka_
-- 2 tlačítka (levé horní a dolní) budou sloužit k nastavení hlasitosti (VOL+ a VOL-)
-- 2 tlačítka (pravé hodní a dolní) budou určena k ladění (UP a DOWN)
-- prostřední tlačítko bude sloužit k potvrzování
+**Ovládání hlasitosti a správa předvoleb (ADKeyboard v3)**
+Modul ADKeyboard v3 sdružuje 5 mikrospínačů na jediný analogový výstup připojený na ADC0 (GP26) mikrokontroléru. Každé tlačítko spíná jiný odporový dělič, takže po stisku vznikne na vstupu ADC unikátní napěťová úroveň (v rozsahu 0–3,3 V). Software tyto hodnoty filtruje (ošetření zákmitů – *debouncing*) a rozděluje tlačítka do tří logických skupin:
 
-něco navíc 
-- použít i něco dalšího, co nabízí laboratoř a pomocí toho zjišťovat sílu signálu
+_Tlačítka 1 a 2 (VOL+ a VOL-)_: Slouží k přímé regulaci hlasitosti. Každý stisk inkrementuje nebo dekrementuje aktuální úroveň hlasitosti v registru čipu Si4703 a okamžitě aktualizuje indikátor na obrazovce.
+
+_Tlačítka 3 a 4 (UP a DOWN – výběr ze seznamu)_: Slouží k listování (posunu kurzoru) v uloženém seznamu předvolených stanic na displeji. Samotné listování ještě nemění naladěnou frekvenci – uživatel si nejprve vybere požadovanou stanici z nabídky.
+
+_Tlačítko 5 (prostřední tlačítko – OK / ENTER)_: Slouží k potvrzení výběru. Po jeho stisknutí systém načte frekvenci označené stanice ze seznamu předvoleb a okamžitě přeladí tuner Si4703 na tuto stanici.
+
+**Uživatelské rozhraní (Graphic LCD 84×48 – Nokia 5110)**
+Vizuální zpětnou vazbu zajišťuje monochromatický grafický displej Nokia 5110 (řadič PCD8544) s rozlišením 84×48 pixelů, připojený přes rychlou sběrnici SPI0. Obrazovka je rozdělena do několika přehledných informačních zón:
+
+_Hlavní údaj o frekvenci_: Dominantní zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
+
+_Identifikace stanice (RDS / Paměť)_: Řádek zobrazující název stanice dekódovaný ze signálu RDS (pokud je RDS k dispozici), případně uložený název z paměti předvoleb.
+
+_Indikátor hlasitosti_: Grafický ukazatel (sloupcový graf nebo číselná hodnota VOL: 0–15) reagující na stisk tlačítek VOL+ / VOL-.
+
+_Seznam předvoleb (Preset List)_: Spodní část displeje zobrazuje položky ze seznamu uložených stanic s vizuálním kurzorem (zvýrazněním), který se pohybuje při ovládání tlačítky na ADKeyboard v3 a čeká na potvrzení prostředním tlačítkem.
 
 ### Blokové schéma
 
@@ -54,7 +68,8 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 - [ ] Dokumentace (nastavení dokumentace přes Sphinx API)
 - [ ] Výstupy -> finální soubor v README, plakát a ukázkové video
 
-# Co je potřeba udělat
+
+# Plán práce
 
 ### 1. týden
 - [ ] Blokové schéma
