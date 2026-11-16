@@ -24,7 +24,8 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 
 ## Popis funkce jednotlivý komponent
 
-### _Příjem a zpracování FM signálu (![Si4703 FM Radio Receiver](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide))_
+[`time_counter`](https://github.com/VojtaKudela/DE1-Alarm-Clock/blob/main/MAIN/time_counter.vhd)
+### _Příjem a zpracování FM signálu [`Si4703 FM Radio Receiver`](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide)_
 Srdcem rádiové části je integrovaný digitální tuner Si4703, který s mikrokontrolérem komunikuje přes sběrnici I2C a řídicí resetovací pin.
 - **Zpracování signálu**: Čip se stará o kompletní příjem, demodulaci a stereofonní dekódování FM signálu v pásmu 87,5–108,0 MHz
 - **Dekódování RDS (Radio Data System)**: Kromě samotného zvuku přijímač průběžně čte digitální datový tok RDS. Z něj software extrahuje PS (Program Service) – tedy oficiální název aktuálně poslouchané rozhlasové stanice (např. _EVROPA 2_, _ČRo 1_), který se následně předává k zobrazení na displej.
