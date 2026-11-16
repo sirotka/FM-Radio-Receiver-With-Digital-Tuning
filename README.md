@@ -10,6 +10,8 @@
 
 Běžné analogové FM přijímače postrádají přesné digitální ladění frekvence, vizuální zpětnou vazbu o naladěné stanici, dekódování doplňkových textových informací a pohodlnou správu uložených předvoleb. Návrh digitálního rádia vyžaduje přesnou časovou koordinaci mezi různými typy sběrnic a vstupů v reálném čase – konkrétně rychlé zpracování kvadraturních signálů z rotačního enkodéru, čtení analogových napěťových úrovní z tlačítkové matice, komunikaci s tunerem přes I2C a vykreslování grafiky přes SPI, aniž by docházelo ke zpoždění uživatelského rozhraní nebo výpadkům zvukového výstupu.
 
+Tento projekt realizuje plně digitální FM přijímač postavený na mikrokontroléru Raspberry Pi Pico W (RP2040) naprogramovaném v jazyce MicroPython. Architektura systému odděluje hardwarovou obsluhu vstupů od aktualizace displeje a řízení tuneru, což zajišťuje okamžitou odezvu na uživatelské povely.
+
 
 ## Komponenty
 
