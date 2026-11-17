@@ -6,11 +6,14 @@
 2. Rostislav Lacek (zodpovědný za )
 4. Vojtěch Kudela (zodpovědný za)
 
+
+
 # Teoretický popis
 
 Běžné analogové FM přijímače postrádají přesné digitální ladění frekvence, vizuální zpětnou vazbu o naladěné stanici, dekódování doplňkových textových informací a pohodlnou správu uložených předvoleb. Návrh digitálního rádia vyžaduje přesnou časovou koordinaci mezi různými typy sběrnic a vstupů v reálném čase – konkrétně rychlé zpracování kvadraturních signálů z rotačního enkodéru, čtení analogových napěťových úrovní z tlačítkové matice, komunikaci s tunerem přes I2C a vykreslování grafiky přes SPI, aniž by docházelo ke zpoždění uživatelského rozhraní nebo výpadkům zvukového výstupu.
 
 Tento projekt realizuje plně digitální FM přijímač postavený na mikrokontroléru Raspberry Pi Pico W (RP2040) naprogramovaném v jazyce MicroPython. Architektura systému odděluje hardwarovou obsluhu vstupů od aktualizace displeje a řízení tuneru, což zajišťuje okamžitou odezvu na uživatelské povely.
+
 
 
 ## Komponenty
@@ -22,22 +25,30 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 | **Displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) |
 | **3.5mm Sluchátka** | analogové audio | zdroj zvuku (funguje jako naténa) |
 
+
+
 ## Popis jednotlivý komponent
 
-### _Příjem a zpracování FM signálu ([`Si4703 FM Radio Receiver`](https://learn.sparkfun.com/tutorials/si4703-fm-radio-receiver-hookup-guide))_
-Srdcem rádiové části je integrovaný digitální tuner Si4703, který s mikrokontrolérem komunikuje přes sběrnici I2C a řídicí resetovací pin.
-- **Zpracování signálu**: Čip se stará o kompletní příjem, demodulaci a stereofonní dekódování FM signálu v pásmu 87,5–108,0 MHz
+
+### _Příjem a zpracování FM signálu_
+Srdcem rádiové části je integrovaný digitální tuner _[`Si4703`](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)_, který s mikrokontrolérem komunikuje přes sběrnici I2C a řídicí resetovací pin.
+- **Zpracování signálu**: Čip se stará o kompletní příjem, demodulaci a stereofonní dekódování FM signálu v pásmu 87,5–108,0 MHz.
+
 - **Dekódování RDS (Radio Data System)**: Kromě samotného zvuku přijímač průběžně čte digitální datový tok RDS. Z něj software extrahuje PS (Program Service) – tedy oficiální název aktuálně poslouchané rozhlasové stanice (např. _EVROPA 2_, _ČRo 1_), který se následně předává k zobrazení na displej.
+  
 - _Hardwarová regulace hlasitosti_: Nastavení hlasitosti probíhá digitálně zápisem do vnitřních registrů čipu Si4703 (v rozsahu 0–15), čímž je zachována maximální kvalita výstupního signálu bez nutnosti vnějšího analogového potenciometru.
+
 - _Zvukový výstup a anténa_: Demodulovaný audio signál je vyveden přímo na integrovaný 3,5mm stereo jack modulu Si4703 pro připojení sluchátek nebo externího zesilovače. Stínění připojeného audio kabelu zároveň slouží jako přijímací FM anténa.
 
-### _Manuální ladění frekvence ([`Rotační enkodér KY-040`](https://dratek.cz/docs/produkty/1/1659/1500635991.pdf))_
-Pro plynulé a přesné manuální přelaďování stanic je použit inkrementální rotační enkodér KY-040 připojený na digitální vstupy CLK a DT.
+
+### _Manuální ladění frekvence_
+Pro plynulé a přesné manuální přelaďování stanic je použit inkrementální _[`rotační enkodér KY-040`](https://dratek.cz/docs/produkty/1/1659/1500635991.pdf)_ připojený na digitální vstupy CLK a DT.
 - _Obsluha v reálném čase_: Snímání otáčení je v MicroPythonu řešeno pomocí hardwarových přerušení (IRQ) na sestupnou/vzestupnou hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý mechanický krok enkodéru i při rychlém otáčení, bez ohledu na to, zda právě překresluje displej.
 - _Krokování frekvence_: Každý detekovaný pulz vpravo či vlevo posune naladěnou frekvenci o pevně definovaný krok (standardně **0,1 MHz**) a odešle příkaz k přeladění do modulu Si4703. Integrované tlačítko enkodéru (SW) lze volitelně využít pro rychlé ztlumení zvuku (Mute).
 
-### _Ovládání hlasitosti a správa předvoleb ([`ADKeyboard v3`](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html))_
-Modul ADKeyboard v3 sdružuje 5 mikrospínačů na jediný analogový výstup připojený na ADC0 mikrokontroléru. Každé tlačítko spíná jiný odporový dělič, takže po stisku vznikne na vstupu ADC unikátní napěťová úroveň (v rozsahu 0–3,3 V). Software tyto hodnoty filtruje (ošetření zákmitů – *debouncing*) a rozděluje tlačítka do tří logických skupin:
+
+### _Ovládání hlasitosti a správa předvoleb_
+Modul _[`ADKeyboard v3`](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html)_ sdružuje 5 mikrospínačů na jediný analogový výstup připojený na ADC0 mikrokontroléru. Každé tlačítko spíná jiný odporový dělič, takže po stisku vznikne na vstupu ADC unikátní napěťová úroveň (v rozsahu 0–3,3 V). Software tyto hodnoty filtruje (ošetření zákmitů – *debouncing*) a rozděluje tlačítka do tří logických skupin:
 
 - _Tlačítka 1 a 2 (VOL+ a VOL-)_: Slouží k přímé regulaci hlasitosti. Každý stisk inkrementuje nebo dekrementuje aktuální úroveň hlasitosti v registru čipu Si4703 a okamžitě aktualizuje indikátor na obrazovce.
 
@@ -45,8 +56,9 @@ Modul ADKeyboard v3 sdružuje 5 mikrospínačů na jediný analogový výstup p�
 
 - _Tlačítko 5 (prostřední tlačítko – OK / ENTER)_: Slouží k potvrzení výběru. Po jeho stisknutí systém načte frekvenci označené stanice ze seznamu předvoleb a okamžitě přeladí tuner Si4703 na tuto stanici.
 
-### _Uživatelské rozhraní ([`Graphic LCD 84×48 – Nokia 5110`](https://www.sparkfun.com/graphic-lcd-84x48-nokia-5110.html?srsltid=AYCX9vJjXhDt5QJ6w0Y2h9K5h-A4lTs36XpI6SGyjpkp7JnMyYZRqbJC))_
-Vizuální zpětnou vazbu zajišťuje monochromatický grafický displej Nokia 5110 (řadič PCD8544) s rozlišením 84×48 pixelů, připojený přes rychlou sběrnici SPI0. Obrazovka je rozdělena do několika přehledných informačních zón:
+
+### _Uživatelské rozhraní_
+Vizuální zpětnou vazbu zajišťuje LCD displej _[`Nokia 5110`](https://www.sparkfun.com/graphic-lcd-84x48-nokia-5110.html?srsltid=AYCX9vJjXhDt5QJ6w0Y2h9K5h-A4lTs36XpI6SGyjpkp7JnMyYZRqbJC)_ s rozlišením 84×48 pixelů, připojený přes rychlou sběrnici SPI0. Obrazovka je rozdělena do několika přehledných informačních zón:
 
 - _Hlavní údaj o frekvenci_: Dominantní zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
 
@@ -55,6 +67,8 @@ Vizuální zpětnou vazbu zajišťuje monochromatický grafický displej Nokia 5
 - _Indikátor hlasitosti_: Grafický ukazatel (sloupcový graf nebo číselná hodnota VOL: 0–15) reagující na stisk tlačítek VOL+ / VOL-.
 
 - _Seznam předvoleb (Preset List)_: Spodní část displeje zobrazuje položky ze seznamu uložených stanic s vizuálním kurzorem (zvýrazněním), který se pohybuje při ovládání tlačítky na ADKeyboard v3 a čeká na potvrzení prostředním tlačítkem.
+
+
 
 ### Blokové schéma
 
