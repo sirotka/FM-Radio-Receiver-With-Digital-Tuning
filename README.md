@@ -23,7 +23,7 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 | **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň |
 | **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka |
 | **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  |
-| **rotační enkodér** | KY-040 |  |   |
+| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ pull-up rezistory|
 | **tlačítka** | ADKeyboard v3 | pasivní analogový obvod  založený na odporovém děliči napětí| obsahuje pull-up rezistory |
 | **3,5mm sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa |
 | **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent |
