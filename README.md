@@ -86,32 +86,31 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 **Odkaz na simulaci:** https://wokwi.com/projects/480485965769085953
 
 
-### Tabulka mapování hardwarových pinů
+### Tabulka mapování hardwarových pinů (DFRobot Pico Gravity Board)
 
-| Komponenta | Pin komponenty | Pico Pin Name | Konektor / Pin na Pico Gravity Board | Funkce / Detaily zapojení |
+| Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na Gravity Board | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- | :--- |
-| **FM přijímač Si4703** | VCC (3.3V) | 3V3 | Sekce I2C0 (3V3) | Napájení (3,3 V) |
-| | GND | GND | Sekce I2C0 (GND) | Společná zem |
-| | SDIO (SDA) | GP4 | Sekce I2C0 (D/4) | I2C Data |
-| | SCLK (SCL) | GP5 | Sekce I2C0 (C/5) | I2C Hodiny |
-| | RST | GP6 | Vnitřní lišta (GP6) | Resetovací pin tuneru (aktivace I2C režimu) |
-| | SEN | 3V3 | Libovolný pin 3V3 | Výběr rozhraní I2C (HIGH / 3,3 V) |
-| **Nokia 5110 LCD** | VCC | 3V3 | Sekce SPI0 (3V3) | Napájení displeje (3,3 V) |
-| | GND | GND | Sekce SPI0 (GND) | Společná zem |
-| | CLK (SCK) | GP18 | Sekce SPI0 (SCK/18) | SPI Hodiny |
-| | DIN (MOSI) | GP19 | Sekce SPI0 (MO/19) | SPI Data (Master Out) |
-| | CE (CS) | GP17 | Sekce SPI0 (SS/17) | Výběr čipu (Chip Select) |
-| | DC | GP16 | Sekce SPI0 (MI/16) | Přepínání Data / Příkaz |
-| | RST | GP20 | Sekce Digital (GP20) | Reset displeje |
-| | BL (LIGHT) | 3V3 | Sekce Digital (3V3) | Podsvícení displeje (3,3 V) |
-| **ADKeyboard v3** | VCC | 3V3 | Sekce Analog (GP26 - 3V3) | Napájení odporové sítě (3,3 V) |
-| | GND | GND | Sekce Analog (GP26 - GND) | Společná zem |
-| | OUT (S) | GP26 | Sekce Analog (GP26 - A) | Analogový vstup ADC0 (čtení 5 tlačítek) |
-| **Rotační enkodér KY-040** | + (VCC) | 3V3 | Sekce Digital (GP14 - 3V3) | Napájení pull-up rezistorů (3,3 V) |
-| | GND | GND | Sekce Digital (GP14 - GND) | Společná zem |
-| | CLK | GP14 | Sekce Digital (GP14 - D) | Kanál A kvadraturního signálu (IRQ) |
-| | DT | GP15 | Sekce Digital (GP15 - D) | Kanál B kvadraturního signálu |
-| | SW | GP13 | Sekce Digital (GP13 - D) | Integrované tlačítko enkodéru (např. Mute) |
+| **FM přijímač Si4703** | VCC (3.3V) | 3V3 | Blok **I2C0** (Pin 3V3) | Napájení modulu (3,3 V) |
+| | GND | GND | Blok **I2C0** (Pin GND) | Společná zem |
+| | SDIO (SDA) | GP4 | Blok **I2C0** (Pin D/4) | I2C datová sběrnice |
+| | SCLK (SCL) | GP5 | Blok **I2C0** (Pin C/5) | I2C hodinová sběrnice |
+| | RST | GP6 | Vnitřní lišta (GP6) | Resetovací pin pro aktivaci I2C režimu čipu |
+| **Nokia 5110 LCD** | VCC | 3V3 | Blok **SPI0** (Pin 3V3) | Napájení displeje (3,3 V) |
+| | GND | GND | Blok **SPI0** (Pin GND) | Společná zem |
+| | CLK (SCK) | GP18 | Blok **SPI0** (Pin SCK/18) | SPI hodiny (Serial Clock) |
+| | DIN (MOSI) | GP19 | Blok **SPI0** (Pin MO/19) | SPI data (Master Out / Data In) |
+| | CE (CS) | GP17 | Blok **SPI0** (Pin SS/17) | Chip Select / Aktivace displeje |
+| | DC | GP16 | Blok **SPI0** (Pin MI/16) | Přepínání Data / Příkaz (využit MISO pin) |
+| | RST | GP20 | Blok **Digital** (Pin GP20) | Hardwarový reset displeje |
+| | BL (LIGHT) | 3V3 | Blok **Digital** (Pin GP20 / 3V3) | Podsvícení displeje (připojeno na 3,3 V) |
+| **ADKeyboard v3** | VCC | 3V3 | Blok **Analog** (Pin GP26 / 3V3) | Napájení odporové sítě tlačítek (3,3 V) |
+| | GND | GND | Blok **Analog** (Pin GP26 / GND) | Společná zem |
+| | OUT (S) | GP26 | Blok **Analog** (Pin GP26 / A) | Analogový vstup ADC0 pro čtení 5 tlačítek |
+| **Rotační enkodér KY-040** | + (VCC) | 3V3 | Blok **Digital** (Pin GP14 / 3V3) | Napájení pull-up rezistorů enkodéru (3,3 V) |
+| | GND | GND | Blok **Digital** (Pin GP14 / GND) | Společná zem |
+| | CLK | GP14 | Blok **Digital** (Pin GP14 / D) | Kanál A kvadraturního signálu (pro IRQ) |
+| | DT | GP15 | Blok **Digital** (Pin GP15 / D) | Kanál B kvadraturního signálu |
+| | SW | GP13 | Blok **Digital** (Pin GP13 / D) | Integrované tlačítko enkodéru (např. pro Mute) |
 
 
 # Požadavky
