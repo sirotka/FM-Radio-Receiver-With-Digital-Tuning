@@ -128,7 +128,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 ### 1. Týden
 - [x] Zjištění problematiky projektu a domluva na funkcích
 - [x] Založení GitLab repozitáře
-- [ ] Vytvoření seznamu komponent + přiložit odkazy a datasheety na github
+- [x] Vytvoření seznamu komponent + přiložit odkazy
 - [x] Návrh blokové schématu zapojení (případně jej pak upravit)
 
 ### 2. Týden 
