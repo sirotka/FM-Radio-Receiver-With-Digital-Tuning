@@ -85,6 +85,11 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 **Odkaz na simulaci:** https://wokwi.com/projects/480485965769085953
 
+
+### Tabulka mapování hardwarových pinů
+
+
+
 # Požadavky
 
 - [ ] Návrh blokového schématu a případné jeho přepracování do finální verze
