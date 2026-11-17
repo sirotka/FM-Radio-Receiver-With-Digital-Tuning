@@ -37,7 +37,7 @@ Pro plynulé a přesné manuální přelaďování stanic je použit inkrementá
 - _Krokování frekvence_: Každý detekovaný pulz vpravo či vlevo posune naladěnou frekvenci o pevně definovaný krok (standardně **0,1 MHz**) a odešle příkaz k přeladění do modulu Si4703. Integrované tlačítko enkodéru (SW) lze volitelně využít pro rychlé ztlumení zvuku (Mute).
 
 ### _Ovládání hlasitosti a správa předvoleb ([`ADKeyboard v3`](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html))_
-Modul ADKeyboard v3 sdružuje 5 mikrospínačů na jediný analogový výstup připojený na ADC0 (GP26) mikrokontroléru. Každé tlačítko spíná jiný odporový dělič, takže po stisku vznikne na vstupu ADC unikátní napěťová úroveň (v rozsahu 0–3,3 V). Software tyto hodnoty filtruje (ošetření zákmitů – *debouncing*) a rozděluje tlačítka do tří logických skupin:
+Modul ADKeyboard v3 sdružuje 5 mikrospínačů na jediný analogový výstup připojený na ADC0 mikrokontroléru. Každé tlačítko spíná jiný odporový dělič, takže po stisku vznikne na vstupu ADC unikátní napěťová úroveň (v rozsahu 0–3,3 V). Software tyto hodnoty filtruje (ošetření zákmitů – *debouncing*) a rozděluje tlačítka do tří logických skupin:
 
 - _Tlačítka 1 a 2 (VOL+ a VOL-)_: Slouží k přímé regulaci hlasitosti. Každý stisk inkrementuje nebo dekrementuje aktuální úroveň hlasitosti v registru čipu Si4703 a okamžitě aktualizuje indikátor na obrazovce.
 
