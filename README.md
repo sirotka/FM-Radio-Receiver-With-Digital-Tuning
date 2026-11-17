@@ -18,12 +18,15 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 
 ## Komponenty
 
-| Komponenta | Popis / Specifikace | Rozhraní / Protokol |
-| :--- | :--- | :--- |
-| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 Dvoujádrový ARM Cortex-M0+ / 3.3V logická úroveň |
-| **FM Modul** | Si4703 FM Tuner | I2C + 3.5mm Jack |
-| **Displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) |
-| **3.5mm Sluchátka** | analogové audio | zdroj zvuku (funguje jako naténa) |
+| Komponenta | Popis / Specifikace | Rozhraní / Protokol | Poznámky |
+| :--- | :--- | :--- | :--- |
+| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň |
+| **FM Modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka |
+| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  |
+| **enkodér** | KY-040 Rotační enkodérový modul |  |   |
+| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod  založený na odporovém děliči napětí| obsahuje pull-up rezistory |
+| **3,5mm Sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa |
+| **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent |
 
 
 
@@ -42,7 +45,7 @@ Srdcem rádiové části je integrovaný digitální tuner _[`Si4703`](https://p
 
 
 ### _Manuální ladění frekvence_
-Pro plynulé a přesné manuální přelaďování stanic je použit inkrementální _[`rotační enkodér KY-040`](https://dratek.cz/docs/produkty/1/1659/1500635991.pdf)_ připojený na digitální vstupy CLK a DT.
+Pro plynulé a přesné manuální přelaďování stanic je použit rotační enkodér připojený na digitální vstupy CLK a DT.
 - _Obsluha v reálném čase_: Snímání otáčení je v MicroPythonu řešeno pomocí hardwarových přerušení (IRQ) na sestupnou/vzestupnou hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý mechanický krok enkodéru i při rychlém otáčení, bez ohledu na to, zda právě překresluje displej.
 - _Krokování frekvence_: Každý detekovaný pulz vpravo či vlevo posune naladěnou frekvenci o pevně definovaný krok (standardně **0,1 MHz**) a odešle příkaz k přeladění do modulu Si4703. Integrované tlačítko enkodéru (SW) lze volitelně využít pro rychlé ztlumení zvuku (Mute).
 
