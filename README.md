@@ -77,7 +77,7 @@ Vizuální zpětnou vazbu zajišťuje LCD displej _[`Nokia 5110`](https://naylam
 
 Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače a použitá rozhraní I²C, SPI, GPIO a ADC.
 
-![Blokové schéma FM přijímače](images/FMradio.drawio.png)
+![Blokové schéma FM přijímače](images/blockdiagram.drawio.png)
 
 ### Simulace ve Wokwi
 
