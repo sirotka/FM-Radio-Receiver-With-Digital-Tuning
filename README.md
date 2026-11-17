@@ -86,7 +86,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 **Odkaz na simulaci:** https://wokwi.com/projects/480485965769085953
 
 
-### Tabulka mapování hardwarových pinů (DFRobot Pico Gravity Board)
+### Tabulka mapování hardwarových pinů 
 
 | Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na Gravity Board | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- | :--- |
