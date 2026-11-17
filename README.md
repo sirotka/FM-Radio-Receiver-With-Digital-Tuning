@@ -25,7 +25,7 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 | **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  |
 | **enkodér** | KY-040 Rotační enkodérový modul |  |   |
 | **tlačítka** | ADKeyboard v3 | pasivní analogový obvod  založený na odporovém děliči napětí| obsahuje pull-up rezistory |
-| **3,5mm Sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa |
+| **3,5mm sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa |
 | **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent |
 
 
