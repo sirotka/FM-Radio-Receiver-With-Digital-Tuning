@@ -87,10 +87,12 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 # Požadavky
 
-- [x] Návrh blokového schématu
-- [ ] Sestavení na desku + otestování jednotlivých částí (test i součástí kódu)
-- [ ] Dokumentace (nastavení dokumentace přes Sphinx API)
-- [ ] Výstupy -> finální soubor v README, plakát a ukázkové video
+- [ ] Návrh blokového schématu a případné jeho přepracování do finální verze
+- [ ] Otestování samostatných bloků projektu (FM přijímač, LCD displej, enkodér a tlačítka)
+- [ ] Sestavení na desku se všemi částmi a její finální otestování
+- [ ] Finální zpracování Githubu + README
+- [ ] Plakát
+- [ ] Demonstrační video
 
 
 # Plán práce
