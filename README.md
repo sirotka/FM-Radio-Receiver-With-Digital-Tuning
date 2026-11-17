@@ -61,7 +61,7 @@ Modul _[`ADKeyboard v3`](https://botland.store/keyboards/3560-adkeyboard-v3-keyb
 
 
 ### _Uživatelské rozhraní_
-Vizuální zpětnou vazbu zajišťuje LCD displej _[`Nokia 5110`](https://www.sparkfun.com/graphic-lcd-84x48-nokia-5110.html?srsltid=AYCX9vJjXhDt5QJ6w0Y2h9K5h-A4lTs36XpI6SGyjpkp7JnMyYZRqbJC)_ s rozlišením 84×48 pixelů, připojený přes rychlou sběrnici SPI0. Obrazovka je rozdělena do několika přehledných informačních zón:
+Vizuální zpětnou vazbu zajišťuje LCD displej _[`Nokia 5110`](https://naylampmechatronics.com/lcd-alfanumerico/989-display-lcd-nokia-5110.html)_ s rozlišením 84×48 pixelů, připojený přes rychlou sběrnici SPI0. Obrazovka je rozdělena do několika přehledných informačních zón:
 
 - _Hlavní údaj o frekvenci_: Dominantní zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
 
@@ -111,6 +111,6 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 ## Reference
 1. [Gravity: Expansion Board for Raspberry Pi Pico / Pico 2](https://www.dfrobot.com/product-2393.html)
 2. [Si4703 FM Radio Receiver](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)
-3. [Graphic LCD 84x48 - Nokia 5110](https://www.sparkfun.com/graphic-lcd-84x48-nokia-5110.html?srsltid=AYCX9vJjXhDt5QJ6w0Y2h9K5h-A4lTs36XpI6SGyjpkp7JnMyYZRqbJC)
+3. [Graphic LCD 84x48 - Nokia 5110](https://naylampmechatronics.com/lcd-alfanumerico/989-display-lcd-nokia-5110.html)
 4. [ADKeyboard v3](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html)
 5. [Rotační enkodér KY-040](https://botland.store/encoders/16558-rotation-sensor-encoder-20-pulses-okystar-ky-040-5904422366278.html#product_tab_description)
