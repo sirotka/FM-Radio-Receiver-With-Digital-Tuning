@@ -140,7 +140,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 - [x] Založení Github repozitáře
 - [x] Vytvoření seznamu komponent + přiložit odkazy
 - [x] Návrh blokové schématu zapojení (případně jej pak upravit)
-- [ ] Plán časování a souběžnosti
+- [x] Plán časování
 
 ### 2. Týden 
 - [ ] Vytvoření a otestování kódu pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
