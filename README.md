@@ -18,11 +18,11 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 
 Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenosný rozhlasový přijímač na platformě Raspberry Pi Pico W, který nabídne následující vlastnosti:
 
-* _**Spolehlivá hardwarová integrace:**_ Bezproblémová souhra všech komponent na desce *DFRobot Pico Gravity Board*, včetně stabilního příjmu FM signálu přes tuner *Si4703* a využití sluchátkového kabelu jako vestavěné antény.
-* _**Intuitivní digitální ovládání:** Plynulé a citlivé ladění frekvence i regulace hlasitosti pomocí rotačního enkodéru *KY-040* doplněné o softwarové ošetření zákmity tlačítek (*debounce*) pro zamezení chybových stisků.
-* **Optimalizované grafické rozhraní bez přetékání:** Využití displeje *Nokia 5110* (84×48 pixelů) s precizně spočítanými souřadnicemi, které zcela eliminuje ořezávání textu. Rozhraní přehledně zobrazuje aktuální stav tuneru, frekvenci, název stanice v inverzním zvýrazněném rámečku a dynamický sloupcový graf hlasitosti.
-* **Modulární a efektivní software:** Čistá struktura kódu rozdělená do samostatných logických modulů (ovládání displeje, enkodér, komunikace s tunerem).
-* **Stabilní časování a reálný čas:** Dodržení plánu souběžnosti a neblokujících intervalů (rychlé čtení enkodéru, periodická aktualizace displeje a pravidelné dotazování RDS přes I2C), což zajišťuje okamžitou odezvu systému bez výpadků audio výstupu.
+* _**Spolehlivá hardwarová integrace:**_ Bezproblémová komunikace všech komponent na desce, včetně stabilního příjmu FM signálu přes tuner *Si4703* a využití sluchátkového kabelu jako vestavěné antény.
+* _**Intuitivní digitální ovládání:**_ Plynulé a citlivé ladění frekvence i regulace hlasitosti pomocí rotačního enkodéru *KY-040* doplněné o softwarové ošetření zákmity tlačítek (*debounce*) pro zamezení chybových stisků.
+* _**Optimalizované grafické rozhraní bez přetékání:**_ Využití displeje *Nokia 5110*, který bude přehledně zobrazovat aktuální stav tuneru, frekvenci, název stanice v inverzním zvýrazněném rámečku a dynamický sloupcový graf hlasitosti.
+* _**Modulární a efektivní software:**_ Čistá struktura kódu rozdělená do samostatných logických modulů (ovládání displeje, enkodér, komunikace s tunerem).
+* _**Stabilní časování:**_ Dodržení plánu souběžnosti a neblokujících intervalů (rychlé čtení enkodéru, periodická aktualizace displeje a pravidelné dotazování RDS přes I2C), což zajiští okamžitou odezvu systému bez výpadků audio výstupu.
 
 
 ## Komponenty
