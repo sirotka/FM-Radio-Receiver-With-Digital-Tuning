@@ -18,8 +18,8 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 
 Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenosný rozhlasový přijímač na platformě Raspberry Pi Pico W, který nabídne následující vlastnosti:
 
-* **Spolehlivá hardwarová integrace:** Bezproblémová souhra všech komponent na desce *DFRobot Pico Gravity Board*, včetně stabilního příjmu FM signálu přes tuner *Si4703* a využití sluchátkového kabelu jako vestavěné antény.
-* **Intuitivní digitální ovládání:** Plynulé a citlivé ladění frekvence i regulace hlasitosti pomocí rotačního enkodéru *KY-040* doplněné o softwarové ošetření zákmity tlačítek (*debounce*) pro zamezení chybových stisků.
+* _**Spolehlivá hardwarová integrace:**_ Bezproblémová souhra všech komponent na desce *DFRobot Pico Gravity Board*, včetně stabilního příjmu FM signálu přes tuner *Si4703* a využití sluchátkového kabelu jako vestavěné antény.
+* _**Intuitivní digitální ovládání:** Plynulé a citlivé ladění frekvence i regulace hlasitosti pomocí rotačního enkodéru *KY-040* doplněné o softwarové ošetření zákmity tlačítek (*debounce*) pro zamezení chybových stisků.
 * **Optimalizované grafické rozhraní bez přetékání:** Využití displeje *Nokia 5110* (84×48 pixelů) s precizně spočítanými souřadnicemi, které zcela eliminuje ořezávání textu. Rozhraní přehledně zobrazuje aktuální stav tuneru, frekvenci, název stanice v inverzním zvýrazněném rámečku a dynamický sloupcový graf hlasitosti.
 * **Modulární a efektivní software:** Čistá struktura kódu rozdělená do samostatných logických modulů (ovládání displeje, enkodér, komunikace s tunerem).
 * **Stabilní časování a reálný čas:** Dodržení plánu souběžnosti a neblokujících intervalů (rychlé čtení enkodéru, periodická aktualizace displeje a pravidelné dotazování RDS přes I2C), což zajišťuje okamžitou odezvu systému bez výpadků audio výstupu.
@@ -42,32 +42,32 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 ## Popis jednotlivý komponent
 
 ### _Příjem a zpracování FM signálu_
-Jako klíčový prvek rádiové části **plánujeme využít** integrovaný digitální tuner **Si4703**, jehož úkolem je komunikovat s mikrokontrolérem přes sběrnici I2C a řídicí pin. Od tohoto čipu **očekáváme následující funkce**:
-- **Zpracování signálu**: Čip má za úkol zajistit kompletní příjem, demodulaci a stereofonní dekódování FM vysílání v celém pásmu 87,5–108,0 MHz.
-- **Dekódování RDS (Radio Data System)**: Od tuneru **očekáváme**, že bude kromě zvuku průběžně číst digitální datový tok RDS a poskytovat softwaru oficiální názvy stanic (např. *EVROPA 2*, *ČRo 1*), které **plánujeme** předávat k zobrazení na displej.
-- **Hardwarová regulace hlasitosti**: Tuto funkci **chceme realizovat** digitálně zápisem do vnitřních registrů čipu (v rozsahu 0–15). Od tohoto přístupu **očekáváme** zachování špičkové kvality výstupního signálu bez potřeby vnějšího analogového potenciometru.
-- **Anténa**: Jako přijímací FM anténu **plánujeme využít** stínění připojeného audio kabelu od sluchátek.
+Základem rádiové části je integrovaný digitální tuner _[`Si4703`](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)_, který s mikrokontrolérem komunikuje přes I2C sběrnici a řídicí resetovací pin. 
+- ***Zpracování signálu***: Čip obstarává kompletní příjem, demodulaci a stereofonní dekódování FM vysílání v běžném rozhlasovém pásmu 87,5–108,0 MHz.
+- ***Dekódování RDS (Radio Data System)***: Kromě samotného audia přijímač průběžně čte RDS data, ze kterých software vytahuje oficiální názvy stanic (např. *EVROPA 2*, *ČRo 1*) a posílá je na displej.
+- ***Hardwarová regulace hlasitosti***: Hlasitost se nastavuje digitálně přímým zápisem do vnitřních registrů čipu (v rozsahu 0–15), což zaručuje čistý výstup bez nutnosti používat vnější analogový potenciometr.
+- ***Anténa***: Jako přijímací anténa pro FM signál slouží sluchátkový kabel.
 
 
-### _Manuální ladění frekvence_
-Pro plynulé a přesné manuální ovládání **budeme používat** rotační enkodér **KY-040** připojený na digitální vstupy. Od tohoto komponentu **očekáváme**:
-- **Obsluha v reálném čase**: Snímání otáčení **chceme řešit** pomocí hardwarových přerušení (IRQ) na hranu signálu CLK. Od toho **očekáváme**, že mikrokontrolér spolehlivě zaznamená každý krok enkodéru i při rychlém otočení, aniž by byl ovlivněn překreslováním displeje.
-- **Krokování frekvence**: Každý detekovaný impuls má za úkol posunout frekvenci o pevný krok (**0,1 MHz**) a odeslat požadavek na přeladění do čipu Si4703. Integrované tlačítko enkodéru (SW) **plánujeme využít** pro rychlé ztlumení zvuku (Mute).
+### _Ladění frekvence_
+Pro plynulé a přesné manuální ovládání slouží rotační enkodér _[`KY-040`](https://botland.store/encoders/16558-rotation-sensor-encoder-20-pulses-okystar-ky-040-5904422366278.html#product_tab_description)_ připojený na digitální vstupy.
+- ***Obsluha v reálném čase***: Snímání otáčení je ošetřeno pomocí hardwarových přerušení (IRQ) na hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý krok enkodéru i při rychlém otočení, aniž by ho zpomalovalo vykreslování grafiky.
+- ***Krokování frekvence***: Každý zaznamenaný impuls posune naladěnou frekvenci o pevný krok a odešle příkaz k přeladění do tuneru. Integrované tlačítko enkodéru (SW) navíc funguje jako rychlé prohledávání a naladění stanice.
 
 
 ### _Ovládání hlasitosti a správa předvoleb_
-Modul **ADKeyboard v3** sdružující 5 mikrospínačů na jediném analogovém vstupu ADC0 **plánujeme zapojit** za účelem zefektivnění ovládání. Od tohoto modulu **očekáváme** bezproblémové generování unikátních napěťových úrovní. Software **bude zajišťovat** filtraci hodnot (*debouncing*) a rozdělení tlačítek do těchto zamýšlených rolí:
-- **Tlačítka 1 a 2 (VOL+ a VOL-)**: **Budou sloužit** k přímé regulaci hlasitosti v registru tuneru s okamžitou zpětnou vazbou na obrazovce.
-- **Tlačítka 3 a 4 (UP a DOWN)**: **Plánujeme je využít** k listování v seznamu uložených stanic. Samotný posun kurzoru ještě nemá měnit frekvenci, dokud uživatel volbu nepotvrdí.
-- **Tlačítko 5 (OK / ENTER)**: Jeho úkolem **bude** potvrdit výběr zvýrazněné stanice ze seznamu a okamžitě přeladit tuner na tuto frekvenci.
+Modul _[`ADKeyboard v3`](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html)_ sdružuje pět mikrospínačů připojených na jediný analogový vstup ADC0. Každé tlačítko aktivuje jiný odporový dělič a vytvoří na vstupu unikátní napěťovou úroveň (0–3,3 V). Software hodnoty filtruje proti zákmitem (*debouncing*) a rozděluje je do těchto funkcí:
+- ***Tlačítka 1 a 2 (VOL+ a VOL-)***: Slouží k přímé úpravě hlasitosti v registru tuneru s okamžitou odezvou na obrazovce.
+- ***Tlačítka 3 a 4 (UP a DOWN)***: Slouží k listování v seznamu uložených stanic. Samotný posun kurzoru ještě nemění frekvenci, dokud uživatel volbu nepotvrdí.
+- ***Tlačítko 5 (OK / ENTER)***: Slouží k potvrzení vybrané stanice ze seznamu, okamžitému přeladění tuneru na tuto frekvenci, případně k uložení stanice do paměti.
 
 
 ### _Uživatelské rozhraní_
-Vizuální zpětnou vazbu **plánujeme zajistit** pomocí LCD displeje **Nokia 5110** (84×48 pixelů) připojeného přes SPI sběrnici. Od displeje **očekáváme**, že přehledně zobrazí následující informace rozdělené do zón:
-- **Hlavní údaj o frekvenci**: Výrazné zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
-- **Identifikace stanice (RDS / Paměť)**: Vyhrazený řádek pro název stanice získaný z RDS signálu nebo z uložených předvoleb.
-- **Indikátor hlasitosti**: Grafický či číselný ukazatel (0–15) reagující na tlačítka hlasitosti.
-- **Seznam předvoleb (Preset List)**: Spodní část obrazovky určená k procházení uložených stanic pomocí kurzoru ovládaného tlačítky.
+Vizuální zpětnou vazbu obstarává LCD displej _[`Nokia 5110`](https://naylampmechatronics.com/lcd-alfanumerico/989-display-lcd-nokia-5110.html)_ (84×48 pixelů) připojený přes SPI sběrnici. Informace jsou na obrazovce rozděleny do přehledných zón:
+- ***Hlavní údaj o frekvenci***: Výrazné zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
+- ***Identifikace stanice (RDS / Paměť)***: Vyhrazený řádek pro název stanice načtený z RDS nebo z uložených předvoleb.
+- ***Indikátor hlasitosti***: Grafický či číselný ukazatel (0–15) reagující na stisk tlačítek hlasitosti.
+- ***Seznam předvoleb (Preset List)***: Spodní část obrazovky určená k procházení uložených stanic pomocí kurzoru ovládaného tlačítky.
 
 
 
