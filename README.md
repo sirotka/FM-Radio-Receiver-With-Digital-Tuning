@@ -117,8 +117,8 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 | Činnost | Způsob provedení | Interval | Cíl |
 | :--- | :--- | :--- | :--- |
-| **Čtení enkodéru (KY-040)** | Hlavní smyčka (Polling) | 10–20 ms | Plynulá detekce otáčení hřídele bez ztráty kroků |
-| **Kontrola tlačítka** | Hlavní smyčka | 10–20 ms | Spolehlivá detekce stisku pro přepínání režimů |
+| **Čtení enkodéru (KY-040)** | Hlavní smyčka / Polling | 10–20 ms | Plynulá detekce otáčení hřídele bez ztráty kroků |
+| **Ošetření zákmitů tlačítka (Debounce)** | Softwarová detekce / Časové razítko | ~50 ms okno | Zamezení vícenásobného spuštění (double-triggering) při stisku |
 | **Obnovení displeje (Nokia 5110)** | Periodická smyčka | Při změně / cca 100 ms | Vizuální zpětná vazba bez blikání displeje |
 | **Čtení tuneru (Si4703 / RDS)** | Periodické dotazování | ~300–500 ms | Aktualizace stavu ladění, signálu a názvu stanice přes I2C |
 
