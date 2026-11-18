@@ -113,13 +113,14 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | | SW | GP13 | Blok **Digital** (Pin GP13 / D) | Integrované tlačítko enkodéru (např. pro Mute) |
 
 
-### Časování a plán souběžnosti
+## Časování
 
-| Činnost (Aktivita) | Zamýšlený interval | Způsob běhu / Implementace | Popis a účel |
+| Činnost | Způsob provedení | Interval | Cíl |
 | :--- | :--- | :--- | :--- |
-| **Čtení enkodéru (KY-040)** | Krátký (10–20 ms) | Blokující cyklus v hlavní smyčce s `time.sleep_ms(10)` | Zajišťuje okamžitou a plynulou detekci otáčení hřídele a stisku tlačítka bez znatelné odezvy. |
-| **Obnovení displeje (Nokia 5110)** | Dynamický / cca 100 ms | Synchronní vykreslení v každém cyklu změny stavu | Přepisuje paměťový buffer a odesílá data přes SPI na displej pouze tehdy, dojde-li ke změně hodnot (nebo v pravidelném taktu), což šetří výkon procesoru. |
-| **Dotazování FM tuneru / RDS (Si4703)** | Delší (200–500 ms) | Periodické čtení přes I2C sběrnici | Kontroluje stav ladění, sílu signálu a aktualizuje názvy stanic (RDS). Interval brání nadměrnému zasycení I2C sběrnice. |
+| **Čtení enkodéru (KY-040)** | Hlavní smyčka (Polling) | 10–20 ms | Plynulá detekce otáčení hřídele bez ztráty kroků |
+| **Kontrola tlačítka** | Hlavní smyčka | 10–20 ms | Spolehlivá detekce stisku pro přepínání režimů |
+| **Obnovení displeje (Nokia 5110)** | Periodická smyčka | Při změně / cca 100 ms | Vizuální zpětná vazba bez blikání displeje |
+| **Čtení tuneru (Si4703 / RDS)** | Periodické dotazování | ~300–500 ms | Aktualizace stavu ladění, signálu a názvu stanice přes I2C |
 
 
 # Požadavky
