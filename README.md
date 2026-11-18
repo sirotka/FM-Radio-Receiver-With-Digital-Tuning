@@ -39,11 +39,11 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 
 
 
-## Popis jednotlivý komponent
+## Popis jednotlivých komponent
 
 ### _Příjem a zpracování FM signálu_
 Základem rádiové části je integrovaný digitální tuner _[`Si4703`](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)_, který s mikrokontrolérem komunikuje přes I2C sběrnici a řídicí resetovací pin. 
-- ***Zpracování signálu***: Čip obstarává kompletní příjem, demodulaci a stereofonní dekódování FM vysílání v běžném rozhlasovém pásmu 87,5–108,0 MHz.
+- ***Zpracování signálu***: Čip obstarává kompletní příjem, demodulaci a stereofonní dekódování FM vysílání v běžném rozhlasovém pásmu 87,5–108,0 MHz. _[`Knihovna`](https://github.com/ryedwards/si4703RaspberryPi)_
 - ***Dekódování RDS (Radio Data System)***: Kromě samotného audia přijímač průběžně čte RDS data, ze kterých software vytahuje oficiální názvy stanic (např. *EVROPA 2*, *ČRo 1*) a posílá je na displej.
 - ***Hardwarová regulace hlasitosti***: Hlasitost se nastavuje digitálně přímým zápisem do vnitřních registrů čipu (v rozsahu 0–15), což zaručuje čistý výstup bez nutnosti používat vnější analogový potenciometr.
 - ***Anténa***: Jako přijímací anténa pro FM signál slouží sluchátkový kabel.
