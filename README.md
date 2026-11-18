@@ -88,7 +88,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ### Tabulka mapování hardwarových pinů 
 
-| Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na Gravity Board | Funkce / Popis zapojení |
+| Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- | :--- |
 | **FM přijímač Si4703** | VCC (3.3V) | 3V3 | Blok **I2C0** (Pin 3V3) | Napájení modulu (3,3 V) |
 | | GND | GND | Blok **I2C0** (Pin GND) | Společná zem |
