@@ -127,16 +127,33 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ### 1. Týden
 - [x] Zjištění problematiky projektu a domluva na funkcích
-- [x] Založení GitLab repozitáře
+- [x] Založení Github repozitáře
 - [x] Vytvoření seznamu komponent + přiložit odkazy
 - [x] Návrh blokové schématu zapojení (případně jej pak upravit)
+- [ ] Plán časování a souběžnosti
 
 ### 2. Týden 
 - [ ] Vytvoření a otestování kódu pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
 - [ ] Vytvoření a otestování kódu pro tlačítka (zjistit, jak fungují + datasheet)
 - [ ] Vytvoření a otestování kódu pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
-- [ ] Nahrání funkčních testovacích skriptů do repozitáře
+- [ ] Vytvoření záznamu testovaných částí (foto či video)
+- [ ] Uložení funkčních komponentů na Github
+- [ ] Aktualizování schématu zapojení (blokové i ve Wowki)
 
+###  3. Týden
+- [ ] Sestavení prototypu s klíčovými funkcemi
+- [ ] Záznamy a řešené problémy integrace
+
+### 4. Týden
+- [ ] Výsledky testů
+- [ ] Ověření stability prototypu
+- [ ] Návrh plakátu a osnova ukázky
+
+### 5. Týden
+- [ ] Kompletní finalizace projektu
+- [ ] Dokončení plakátu
+- [ ] Dokončení Githubu
+- [ ] Natočení demonstračního videa a vložení na Github
 
 ## Reference
 1. [Gravity: Expansion Board for Raspberry Pi Pico / Pico 2](https://www.dfrobot.com/product-2393.html)
