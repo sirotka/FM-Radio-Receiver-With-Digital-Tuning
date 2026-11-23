@@ -131,17 +131,25 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ```text
 pico-fm-radio/
-├── images/
-│   ├── blockdiagram.png
-│   └── schematic.png
-├── src/
-│   ├── main.py
-│   ├── si4703.py
-│   └── nokia5110.py
 ├── docs/
-│   └── datasheets/
-├── Wokwi/
-│   └── diagram.json
+│   ├── AN243.pdf
+│   ├── DFR0075_sch.pdf
+│   ├── Nokia5110.pdf
+│   ├── Si4703_Eval_v13.pdf
+│   └── Si4703_datasheet.pdf
+├── images/
+│   ├── FMradio.drawio.png
+│   ├── blockdiagram.drawio.png
+│   ├── blockdiagram.png
+│   └── image
+├── test/
+│   ├── si4703Library.py
+│   ├── test.py
+│   ├── test1
+│   ├── testButtonsEncoder.py
+│   └── test_display.py
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
