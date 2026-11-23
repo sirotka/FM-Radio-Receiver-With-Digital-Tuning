@@ -2,9 +2,9 @@
 
 Členové týmu
 
-1. Ekaterina Krupenko (zodpovědná za simulaci ve Wokwi)
-2. Rostislav Lacek (zodpovědný za )
-4. Vojtěch Kudela (zodpovědný za)
+1. Ekaterina Krupenko (zodpovědná za simulaci ve Wokwi a testování na fyzické desce)
+2. Rostislav Lacek (zodpovědný za hardware, správu Githabu)
+4. Vojtěch Kudela (zodpovědný za FM přijímač a software)
 
 
 
