@@ -141,16 +141,16 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 - [x] Plán časování
 
 ### 2. Týden 
-- [ ] Udělat úpravy podle excel tabulky
-- [ ] Vytvoření a otestování kódu pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
-- [ ] Vytvoření a otestování kódu pro tlačítka (zjistit, jak fungují + datasheet)
-- [ ] Vytvoření a otestování kódu pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
+- [ ] Udělat úpravy podle připomínek z excel tabulky
+- [x] Vytvoření a otestování kódu pro displej (pro zobrazení přijímaného signálu -> zobrazení čísel (frekvence a hlasitost))
+- [x] Vytvoření a otestování kódu pro tlačítka (zjistit, jak fungují + datasheet)
+- [x] Vytvoření a otestování kódu pro FM přijímač (rozchodit knihovnu a otestovat v laboratoři)
 - [ ] Vytvoření záznamu testovaných částí (foto či video)
-- [ ] Uložení funkčních komponentů na Github
+- [x] Uložení funkčních komponentů na Github
 - [ ] Aktualizování schématu zapojení (blokové i ve Wowki)
-- [ ] Nahrát knihovnu pro FM příjem3
-- [ ] Nahrát kód pro tlačítka a enkodér
-- [ ] Nahrát kód pro displej
+- [x] Nahrát knihovnu pro FM příjem3
+- [x] Nahrát kód pro tlačítka a enkodér
+- [x] Nahrát kód pro displej
 
 ###  3. Týden
 - [ ] Sestavení prototypu s klíčovými funkcemi
