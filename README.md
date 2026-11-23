@@ -2,9 +2,9 @@
 
 Členové týmu
 
-1. Ekaterina Krupenko (zodpovědná za simulaci ve Wokwi a testování na fyzické desce)
-2. Rostislav Lacek (zodpovědný za hardware, správu Githabu)
-4. Vojtěch Kudela (zodpovědný za FM přijímač a software)
+1. Ekaterina Krupenko (zodpovědná za simulaci ve Wokwi , testování na fyzické desce)
+2. Rostislav Lacek (zodpovědný za hardware, fyzické zapojení obvodu na desce a správu GitHub repozitáře)
+4. Vojtěch Kudela (zodpovědný za softwarovou architektonickou část, obsluhu FM přijímače a integraci logiky)
 
 
 
@@ -120,6 +120,29 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | **Obnovení displeje (Nokia 5110)** | Periodická smyčka | Při změně / cca 100 ms | Vizuální zpětná vazba bez blikání displeje |
 | **Čtení tuneru (Si4703 / RDS)** | Periodické dotazování | ~300–500 ms | Aktualizace stavu ladění, signálu a názvu stanice přes I2C |
 
+
+### Použité knihovny a verze MicroPythonu
+
+- **Verze MicroPythonu:** MicroPython v1.22.0+ (oficiální build pro RP2040 / Raspberry Pi Pico W)
+- **Základní vestavěné knihovny:** `machine` (pro obsluhu SPI, I2C, Pin a ADC), `time` (časové prodlevy a měření ticks), `framebuf` (grafický buffer pro LCD)
+- **Komunikační ovladače:** Vlastní modul pro komunikaci s čipem Si4703 přes I2C registr a ovladač řadiče PCD8544 pro displej Nokia 5110.
+
+### Hierarchická struktura repozitáře
+
+```text
+pico-fm-radio/
+├── images/
+│   ├── blockdiagram.png
+│   └── schematic.png
+├── src/
+│   ├── main.py
+│   ├── si4703.py
+│   └── nokia5110.py
+├── docs/
+│   └── datasheets/
+├── Wokwi/
+│   └── diagram.json
+└── README.md
 
 # Požadavky
 
