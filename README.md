@@ -19,7 +19,7 @@ Tento projekt realizuje plně digitální FM přijímač postavený na mikrokont
 Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenosný rozhlasový přijímač na platformě Raspberry Pi Pico W, který nabídne následující vlastnosti:
 
 * _**Spolehlivá hardwarová integrace:**_ Bezproblémová komunikace všech komponent na desce, včetně stabilního příjmu FM signálu přes tuner *Si4703* a využití sluchátkového kabelu jako vestavěné antény.
-* _**Intuitivní digitální ovládání:**_ Plynulé a citlivé ladění frekvence i regulace hlasitosti pomocí rotačního enkodéru *KY-040* doplněné o softwarové ošetření zákmity tlačítek (*debounce*) pro zamezení chybových stisků.
+* _**Intuitivní digitální ovládání:**_ Plynulé a citlivé ladění frekvence pomocí rotačního enkodéru *KY-040* doplněné o softwarové ošetření zákmity tlačítek (*debounce*) pro zamezení chybových stisků pro volbu hlasitosti .
 * _**Optimalizované grafické rozhraní bez přetékání:**_ Využití displeje *Nokia 5110*, který bude přehledně zobrazovat aktuální stav tuneru, frekvenci, název stanice v inverzním zvýrazněném rámečku a dynamický sloupcový graf hlasitosti.
 * _**Modulární a efektivní software:**_ Čistá struktura kódu rozdělená do samostatných logických modulů (ovládání displeje, enkodér, komunikace s tunerem).
 * _**Stabilní časování:**_ Dodržení plánu souběžnosti a neblokujících intervalů (rychlé čtení enkodéru, periodická aktualizace displeje a pravidelné dotazování RDS přes I2C), což zajiští okamžitou odezvu systému bez výpadků audio výstupu.
