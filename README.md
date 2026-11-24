@@ -166,17 +166,16 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 ### Tlačítka a enkodér
 
-Program na testování tlačítka a enkodér naleznte [`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/testButtonsEncoder.py)
+Program na testování tlačítka a enkodér naleznte _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/testButtonsEncoder.py)_
 
 
 ### Displej
 
-Program na testování displeje naleznte [`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)
-
-Testovaný kódu pro displej naleznete [`zde`](https://wokwi.com/projects/481578125263599617)
+Program na testování displeje naleznte _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
+Testovaný kódu pro displej naleznete _[`zde`](https://wokwi.com/projects/481578125263599617)_
 
 ### FM přijímač
-Program na testování FM přijímače naleznete [`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)
+Program na testování FM přijímače naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
 
 Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
 
