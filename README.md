@@ -254,10 +254,12 @@ V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a 
 - [ ] Natočení demonstračního videa a vložení na Github
 
 ## Reference
-1. [Rasberry Pi Pico Pinout](https://pico.pinout.xyz/)
-2. [Arduino rotary encoder uder manual](https://cdn.shopify.com/s/files/1/0672/9409/files/ky-040-rotary-encoder-datasheet-and-tutorial.pdf)
+1. [MicroPython course labs DE2](https://gitlab.fekt.vut.cz/fryza/micropython-course-labs)
+2. [Rasberry Pi Pico Pinout](https://pico.pinout.xyz/)
+3. [Arduino rotary encoder uder manual](https://cdn.shopify.com/s/files/1/0672/9409/files/ky-040-rotary-encoder-datasheet-and-tutorial.pdf)
+4. [si4703 Raspberry Pi GPIO Python Library](https://github.com/ryedwards/si4703RaspberryPi)
 
-### Osobní zdroje
+### Jiné zdroje k projektu (později budou odstraněny)
 1. [Gravity: Expansion Board for Raspberry Pi Pico / Pico 2](https://www.dfrobot.com/product-2393.html)
 2. [Si4703 FM Radio Receiver](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)
 3. [Graphic LCD 84x48 - Nokia 5110](https://naylampmechatronics.com/lcd-alfanumerico/989-display-lcd-nokia-5110.html)
