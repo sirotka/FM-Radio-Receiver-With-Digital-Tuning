@@ -29,13 +29,13 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 
 ## Komponenty
 
-| Komponenta | Popis / Specifikace | Rozhraní / Protokol | Poznámky | Odkaz |
+| Komponenta | Popis / Specifikace | Rozhraní / Protokol | Poznámky | Odkazy |
 | :--- | :--- | :--- | :--- | :--- |
-| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň | _[`Odkaz`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_ |
-| **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka | _[`Odkaz`](https://cdn.sparkfun.com/assets/learn_tutorials/2/7/4/Si4703_datasheet.pdf)_ |
-| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  | _[`Odkaz`](https://cdn.sparkfun.com/assets/b/1/b/e/f/Nokia5110.pdf)_ |
-| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ 2 pull-up rezistory| _[`Odkaz`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ |
-| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod (odporový dělič napětí) | obsahuje pull-up rezistory | _[`Odkaz`]()_ |
+| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň | _[`Datasheety`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_ |
+| **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka | _[`Datasheety`](https://cdn.sparkfun.com/assets/learn_tutorials/2/7/4/Si4703_datasheet.pdf)_ |
+| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  | _[`Datasheety`](https://cdn.sparkfun.com/assets/b/1/b/e/f/Nokia5110.pdf)_ |
+| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ 2 pull-up rezistory| _[`Datasheety`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ |
+| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod (odporový dělič napětí) | obsahuje pull-up rezistory | _[`Datasheetyz`]()_ |
 | **3,5mm sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa | N/A |
 | **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent | N/A |
 
@@ -44,7 +44,7 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 ## Popis jednotlivých komponent
 
 ### _Příjem a zpracování FM signálu_
-Základem rádiové části je integrovaný digitální tuner _[`Si4703`](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)_, který s mikrokontrolérem komunikuje přes I2C sběrnici a řídicí resetovací pin. 
+Základem rádiové části je integrovaný digitální tuner _[`Si4703`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_, který s mikrokontrolérem komunikuje přes I2C sběrnici a řídicí resetovací pin. 
 - ***Zpracování signálu***: Čip obstarává kompletní příjem, demodulaci a stereofonní dekódování FM vysílání v běžném rozhlasovém pásmu 87,5–108,0 MHz. _[`Knihovna`](https://github.com/ryedwards/si4703RaspberryPi)_
 - ***Dekódování RDS (Radio Data System)***: Kromě samotného audia přijímač průběžně čte RDS data, ze kterých software vytahuje oficiální názvy stanic (např. *EVROPA 2*, *ČRo 1*) a posílá je na displej.
 - ***Hardwarová regulace hlasitosti***: Hlasitost se nastavuje digitálně přímým zápisem do vnitřních registrů čipu (v rozsahu 0–15), což zaručuje čistý výstup bez nutnosti používat vnější analogový potenciometr.
@@ -52,20 +52,20 @@ Základem rádiové části je integrovaný digitální tuner _[`Si4703`](https:
 
 
 ### _Ladění frekvence_
-Pro plynulé a přesné manuální ovládání slouží rotační enkodér _[`KY-040`](https://botland.store/encoders/16558-rotation-sensor-encoder-20-pulses-okystar-ky-040-5904422366278.html#product_tab_description)_ připojený na digitální vstupy.
+Pro plynulé a přesné manuální ovládání slouží rotační enkodér _[`KY-040`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ připojený na digitální vstupy.
 - ***Obsluha v reálném čase***: Snímání otáčení je ošetřeno pomocí hardwarových přerušení (IRQ) na hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý krok enkodéru i při rychlém otočení, aniž by ho zpomalovalo vykreslování grafiky.
 - ***Krokování frekvence***: Každý zaznamenaný impuls posune naladěnou frekvenci o pevný krok a odešle příkaz k přeladění do tuneru. Integrované tlačítko enkodéru (SW) navíc funguje jako rychlé prohledávání a naladění stanice.
 
 
 ### _Ovládání hlasitosti a správa předvoleb_
-Modul _[`ADKeyboard v3`](https://botland.store/keyboards/3560-adkeyboard-v3-keyboard-module-with-colorful-buttons-6959420901197.html)_ sdružuje pět mikrospínačů připojených na jediný analogový vstup ADC0. Každé tlačítko aktivuje jiný odporový dělič a vytvoří na vstupu unikátní napěťovou úroveň (0–3,3 V). Software hodnoty filtruje proti zákmitem (*debouncing*) a rozděluje je do těchto funkcí:
+Modul _[`ADKeyboard v3`]()_ sdružuje pět mikrospínačů připojených na jediný analogový vstup ADC0. Každé tlačítko aktivuje jiný odporový dělič a vytvoří na vstupu unikátní napěťovou úroveň (0–3,3 V). Software hodnoty filtruje proti zákmitem (*debouncing*) a rozděluje je do těchto funkcí:
 - ***Tlačítka 1 a 2 (VOL+ a VOL-)***: Slouží k přímé úpravě hlasitosti v registru tuneru s okamžitou odezvou na obrazovce.
 - ***Tlačítka 3 a 4 (UP a DOWN)***: Slouží k listování v seznamu uložených stanic. Samotný posun kurzoru ještě nemění frekvenci, dokud uživatel volbu nepotvrdí.
 - ***Tlačítko 5 (OK / ENTER)***: Slouží k potvrzení vybrané stanice ze seznamu, okamžitému přeladění tuneru na tuto frekvenci, případně k uložení stanice do paměti.
 
 
 ### _Uživatelské rozhraní_
-Vizuální zpětnou vazbu obstarává LCD displej _[`Nokia 5110`](https://naylampmechatronics.com/lcd-alfanumerico/989-display-lcd-nokia-5110.html)_ (84×48 pixelů) připojený přes SPI sběrnici. Informace jsou na obrazovce rozděleny do přehledných zón:
+Vizuální zpětnou vazbu obstarává LCD displej _[`Nokia 5110`]()_ (84×48 pixelů) připojený přes SPI sběrnici. Informace jsou na obrazovce rozděleny do přehledných zón:
 - ***Hlavní údaj o frekvenci***: Výrazné zobrazení aktuálně naladěné frekvence v MHz (např. **105.5 MHz**).
 - ***Identifikace stanice (RDS / Paměť)***: Vyhrazený řádek pro název stanice načtený z RDS nebo z uložených předvoleb.
 - ***Indikátor hlasitosti***: Grafický či číselný ukazatel (0–15) reagující na stisk tlačítek hlasitosti.
@@ -73,11 +73,15 @@ Vizuální zpětnou vazbu obstarává LCD displej _[`Nokia 5110`](https://naylam
 
 
 
-### Blokové schéma
+## Schémata
+
+### Blokové  schéma
 
 Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače a použitá rozhraní I²C, SPI, GPIO a ADC.
 
 ![Blokové schéma FM přijímače](images/blockdiagram.png)
+
+### Schéma zapojení
 
 ### Simulace ve Wokwi
 
