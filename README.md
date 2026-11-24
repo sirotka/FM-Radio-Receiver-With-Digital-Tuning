@@ -241,6 +241,7 @@ V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a 
 ###  3. Týden
 - [ ] Sestavení prototypu s klíčovými funkcemi
 - [ ] Záznamy a řešené problémy integrace
+- [ ] Doplnění ovládání RDS do knihovny FM přijímače a jeho otestování
 
 ### 4. Týden
 - [ ] Výsledky testů
