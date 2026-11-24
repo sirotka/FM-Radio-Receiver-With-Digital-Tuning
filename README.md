@@ -167,6 +167,9 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 # Software
 
 
+## Testování
+
+
 ## Časování
 
 | Činnost | Způsob provedení | Interval | Cíl |
