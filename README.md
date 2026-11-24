@@ -113,12 +113,6 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 ![Schéma zapojení](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/Sch%C3%A9ma_zapojen%C3%AD.png)
 
-### Simulace ve Wokwi
-
-V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu.
-
-**Odkaz na simulaci naleznete _[`zde`](https://wokwi.com/projects/480485965769085953)_**
-
 
 ## Tabulka mapování hardwarových pinů 
 
@@ -167,17 +161,29 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 # Software
 
 
+
 ## Testování
 
-### Displej
+### Tlačítka a enkodér
 
+Program na testování tlačítka a enkodér naleznte [`zde`]'(https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/testButtonsEncoder.py)
+Testovaný kódu pro tlačítka a enkodér naleznete [`zde`]()
+
+
+### Displej
+Program na testování displeje naleznte [`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)
 Testovaný kódu pro displej naleznete [`zde`](https://wokwi.com/projects/481578125263599617)
 
 ### FM přijímač
-
 Program na testování FM přijímače naleznete [`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)
 
-Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti
+Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
+
+### Simulace ve Wokwi
+V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu. 
+
+**Odkaz na simulaci naleznete _[`zde`](https://wokwi.com/projects/480485965769085953)_**
+
 
 ## Časování
 
