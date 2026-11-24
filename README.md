@@ -83,6 +83,8 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 ### Schéma zapojení
 
+![Schéma zapojení](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/Sch%C3%A9ma_zapojen%C3%AD.png)
+
 ### Simulace ve Wokwi
 
 V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu.
