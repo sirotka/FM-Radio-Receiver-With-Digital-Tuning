@@ -87,7 +87,7 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu.
 
-**Odkaz na simulaci:** https://wokwi.com/projects/480485965769085953
+**Odkaz na simulaci naleznete _[`zde`](https://wokwi.com/projects/480485965769085953)_**
 
 
 ## Tabulka mapování hardwarových pinů 
