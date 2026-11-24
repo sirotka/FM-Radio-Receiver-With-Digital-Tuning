@@ -173,7 +173,7 @@ Program na testování tlačítka a enkodér naleznte _[`zde`](https://github.co
 
 Program na testování displeje naleznte _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
 
-Testovaný kódu pro displej naleznete _[`zde`](https://wokwi.com/projects/481578125263599617)_
+Testovaný kódu pro displej naleznete _[`zde`](https://wokwi.com/projects/481611331371420673)_
 
 ### FM přijímač
 Program na testování FM přijímače naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
