@@ -169,11 +169,11 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ## Testování
 
-Displej
+### Displej
 
 Testovaný kódu pro displej naleznete [`zde`](https://wokwi.com/projects/481578125263599617)
 
-FM přijímač
+### FM přijímač
 
 Program na testování FM přijímače naleznete [`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)
 
