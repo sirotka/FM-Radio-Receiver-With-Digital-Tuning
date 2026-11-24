@@ -149,12 +149,13 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ## Použité knihovny a verze MicroPythonu
 
-- **Verze MicroPythonu:** MicroPython v1.22.0+ (oficiální build pro RP2040 / Raspberry Pi Pico W)
+- **Verze MicroPythonu:** `v1.28.0` (využité prostředí ve Wokwi: `micropython-20260406-v1.28.0`)
 - **Základní vestavěné knihovny:**
-  * _[`machine`](https://docs.micropython.org/en/latest/library/machine.html)_ (pro obsluhu SPI, I2C, Pin a ADC)
-  * _[`time`](https://docs.micropython.org/en/latest/library/time.html)_ (časové prodlevy a měření ticks)
-  * _[`framebuf`](https://docs.micropython.org/en/latest/library/framebuf.html)_ (grafický buffer pro LCD)
-  * _[`si4703`](https://github.com/ryedwards/si4703RaspberryPi)_
+  - _[`machine`](https://docs.micropython.org/en/latest/library/machine.html)_ (pro obsluhu SPI, I2C, Pin a ADC)
+  - _[`time`](https://docs.micropython.org/en/latest/library/time.html)_ (časové prodlevy a měření ticks)
+  - _[`framebuf`](https://docs.micropython.org/en/latest/library/framebuf.html)_ (grafický buffer pro LCD)
+- **Externí / převzaté knihovny:**
+  - _[`si4703`](https://github.com/ryedwards/si4703RaspberryPi)_ – knihovna byla převzata a upravena pro MicroPython z výše uvedeného GitHub repozitáře
 
 ### Hierarchická struktura repozitáře
 
