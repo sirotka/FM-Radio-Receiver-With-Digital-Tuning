@@ -31,11 +31,11 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 
 | Komponenta | Popis / Specifikace | Rozhraní / Protokol | Poznámky | Odkazy |
 | :--- | :--- | :--- | :--- | :--- |
-| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň | _[`Datasheety`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_ |
-| **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka | _[`Datasheety`](https://cdn.sparkfun.com/assets/learn_tutorials/2/7/4/Si4703_datasheet.pdf)_ |
-| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  | _[`Datasheety`](https://cdn.sparkfun.com/assets/b/1/b/e/f/Nokia5110.pdf)_ |
-| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ 2 pull-up rezistory| _[`Datasheety`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ |
-| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod (odporový dělič napětí) | obsahuje pull-up rezistory | _[`Datasheetyz`]()_ |
+| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň | _[`Datasheet`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_ |
+| **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka | _[`Datasheet`](https://cdn.sparkfun.com/assets/learn_tutorials/2/7/4/Si4703_datasheet.pdf)_ |
+| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  | _[`Datasheet`](https://cdn.sparkfun.com/assets/b/1/b/e/f/Nokia5110.pdf)_ |
+| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ 2 pull-up rezistory| _[`Datasheet`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ |
+| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod (odporový dělič napětí) | obsahuje pull-up rezistory | _[`Datasheet`]()_ |
 | **3,5mm sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa | N/A |
 | **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent | N/A |
 
@@ -90,7 +90,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 **Odkaz na simulaci:** https://wokwi.com/projects/480485965769085953
 
 
-### Tabulka mapování hardwarových pinů 
+## Tabulka mapování hardwarových pinů 
 
 | Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- | :--- |
