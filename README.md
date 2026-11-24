@@ -169,6 +169,9 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ## Testování
 
+Displej
+
+Otestování kódu pro displej naleznete ![`zde`](https://wokwi.com/projects/481578125263599617)
 
 ## Časování
 
