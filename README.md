@@ -34,7 +34,7 @@ pico-fm-radio/
 │   ├── DFR0075_sch.pdf
 │   ├── Nokia5110.pdf
 │   ├── OKY3431.pdf
-│   ├── RP-008276-DS-5-getting-start...
+│   ├── RP-008276-DS-5-getting-started-with-pico.pdf
 │   ├── Si4703_Eval_v13.pdf
 │   └── Si4703_datasheet.pdf
 ├── images/
