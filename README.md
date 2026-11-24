@@ -134,7 +134,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
   * _[`machine`](https://docs.micropython.org/en/latest/library/machine.html)_ (pro obsluhu SPI, I2C, Pin a ADC)
   * _[`time`](https://docs.micropython.org/en/latest/library/time.html)_ (časové prodlevy a měření ticks)
   * _[`framebuf`](https://docs.micropython.org/en/latest/library/framebuf.html)_ (grafický buffer pro LCD)
-  * _[`si4703`](https://github.com/ryedwards/si4703RaspberryPi)
+  * _[`si4703`](https://github.com/ryedwards/si4703RaspberryPi)_
 
 ### Hierarchická struktura repozitáře
 
