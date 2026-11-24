@@ -25,6 +25,33 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 * _**Stabilní časování:**_ Dodržení plánu souběžnosti a neblokujících intervalů (rychlé čtení enkodéru, periodická aktualizace displeje a pravidelné dotazování RDS přes I2C), což zajiští okamžitou odezvu systému bez výpadků audio výstupu.
 
 
+### Hierarchická struktura repozitáře
+
+```text
+pico-fm-radio/
+├── docs/
+│   ├── AN243.pdf
+│   ├── DFR0075_sch.pdf
+│   ├── Nokia5110.pdf
+│   ├── Si4703_Eval_v13.pdf
+│   └── Si4703_datasheet.pdf
+├── images/
+│   ├── FMradio.drawio.png
+│   ├── blockdiagram.drawio.png
+│   ├── blockdiagram.png
+│   └── image
+├── test/
+│   ├── si4703Library.py
+│   ├── test.py
+│   ├── test1
+│   ├── testButtonsEncoder.py
+│   └── test_display.py
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+
 # Hardware
 
 ## Komponenty
@@ -157,31 +184,6 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 - **Externí / převzaté knihovny:**
   - _[`si4703`](https://github.com/ryedwards/si4703RaspberryPi)_ – knihovna byla převzata a upravena pro MicroPython z výše uvedeného GitHub repozitáře
 
-### Hierarchická struktura repozitáře
-
-```text
-pico-fm-radio/
-├── docs/
-│   ├── AN243.pdf
-│   ├── DFR0075_sch.pdf
-│   ├── Nokia5110.pdf
-│   ├── Si4703_Eval_v13.pdf
-│   └── Si4703_datasheet.pdf
-├── images/
-│   ├── FMradio.drawio.png
-│   ├── blockdiagram.drawio.png
-│   ├── blockdiagram.png
-│   └── image
-├── test/
-│   ├── si4703Library.py
-│   ├── test.py
-│   ├── test1
-│   ├── testButtonsEncoder.py
-│   └── test_display.py
-├── .gitignore
-├── LICENSE
-└── README.md
-```
 
 
 # Požadavky
