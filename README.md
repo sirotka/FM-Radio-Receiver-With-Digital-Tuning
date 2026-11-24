@@ -94,6 +94,8 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ## Tabulka mapování hardwarových pinů 
 
+### FM přijímač Si4703
+
 | Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- | :--- |
 | **FM přijímač Si4703** | VCC (3.3V) | 3V3 | Blok **I2C0** (Pin 3V3) | Napájení modulu (3,3 V) |
@@ -101,6 +103,11 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | | SDIO (SDA) | GP4 | Blok **I2C0** (Pin D/4) | I2C datová sběrnice |
 | | SCLK (SCL) | GP5 | Blok **I2C0** (Pin C/5) | I2C hodinová sběrnice |
 | | RST | GP6 | Vnitřní lišta (GP6) | Resetovací pin pro aktivaci I2C režimu čipu |
+
+### Nokia 5110 LCD
+
+| Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
+| :--- | :--- | :--- | :--- | :--- |
 | **Nokia 5110 LCD** | VCC | 3V3 | Blok **SPI0** (Pin 3V3) | Napájení displeje (3,3 V) |
 | | GND | GND | Blok **SPI0** (Pin GND) | Společná zem |
 | | CLK (SCK) | GP18 | Blok **SPI0** (Pin SCK/18) | SPI hodiny (Serial Clock) |
@@ -109,14 +116,25 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | | DC | GP16 | Blok **SPI0** (Pin MI/16) | Přepínání Data / Příkaz (využit MISO pin) |
 | | RST | GP20 | Blok **Digital** (Pin GP20) | Hardwarový reset displeje |
 | | BL (LIGHT) | 3V3 | Blok **Digital** (Pin GP20 / 3V3) | Podsvícení displeje (připojeno na 3,3 V) |
+
+### ADKeyboard v3
+
+| Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
+| :--- | :--- | :--- | :--- | :--- |
 | **ADKeyboard v3** | VCC | 3V3 | Blok **Analog** (Pin GP26 / 3V3) | Napájení odporové sítě tlačítek (3,3 V) |
 | | GND | GND | Blok **Analog** (Pin GP26 / GND) | Společná zem |
 | | OUT (S) | GP26 | Blok **Analog** (Pin GP26 / A) | Analogový vstup ADC0 pro čtení 5 tlačítek |
+
+### Rotační enkodér KY-040
+
+| Komponenta | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
+| :--- | :--- | :--- | :--- | :--- |
 | **Rotační enkodér KY-040** | + (VCC) | 3V3 | Blok **Digital** (Pin GP14 / 3V3) | Napájení pull-up rezistorů enkodéru (3,3 V) |
 | | GND | GND | Blok **Digital** (Pin GP14 / GND) | Společná zem |
 | | CLK | GP14 | Blok **Digital** (Pin GP14 / D) | Kanál A kvadraturního signálu (pro IRQ) |
 | | DT | GP15 | Blok **Digital** (Pin GP15 / D) | Kanál B kvadraturního signálu |
 | | SW | GP13 | Blok **Digital** (Pin GP13 / D) | Integrované tlačítko enkodéru (např. pro Mute) |
+
 
 
 ## Časování
