@@ -163,6 +163,8 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | SW | GP13 | Blok **Digital** (Pin GP13 / D) | Integrované tlačítko enkodéru (např. pro Mute) |
 
 
+# Software
+
 
 ## Časování
 
@@ -183,7 +185,6 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
   - _[`framebuf`](https://docs.micropython.org/en/latest/library/framebuf.html)_ (grafický buffer pro LCD)
 - **Externí / převzaté knihovny:**
   - _[`si4703`](https://github.com/ryedwards/si4703RaspberryPi)_ – knihovna byla převzata a upravena pro MicroPython z výše uvedeného GitHub repozitáře
-
 
 
 # Požadavky
