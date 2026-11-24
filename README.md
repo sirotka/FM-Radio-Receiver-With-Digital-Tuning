@@ -94,7 +94,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 
 ## Tabulka mapování hardwarových pinů 
 
-### FM přijímač Si4703
+### _FM přijímač Si4703_
 
 | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- |
@@ -104,7 +104,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | SCLK (SCL) | GP5 | Blok **I2C0** (Pin C/5) | I2C hodinová sběrnice |
 | RST | GP6 | Vnitřní lišta (GP6) | Resetovací pin pro aktivaci I2C režimu čipu |
 
-### Nokia 5110 LCD
+### _Nokia 5110 LCD_
 
 | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- |
@@ -117,7 +117,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | RST | GP20 | Blok **Digital** (Pin GP20) | Hardwarový reset displeje |
 | BL (LIGHT) | 3V3 | Blok **Digital** (Pin GP20 / 3V3) | Podsvícení displeje (připojeno na 3,3 V) |
 
-### ADKeyboard v3
+### _ADKeyboard v3_
 
 | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- |
@@ -125,7 +125,7 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | GND | GND | Blok **Analog** (Pin GP26 / GND) | Společná zem |
 | OUT (S) | GP26 | Blok **Analog** (Pin GP26 / A) | Analogový vstup ADC0 pro čtení 5 tlačítek |
 
-### Rotační enkodér KY-040
+### _Rotační enkodér KY-040_
 
 | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- |
