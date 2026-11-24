@@ -25,17 +25,19 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 * _**Stabilní časování:**_ Dodržení plánu souběžnosti a neblokujících intervalů (rychlé čtení enkodéru, periodická aktualizace displeje a pravidelné dotazování RDS přes I2C), což zajiští okamžitou odezvu systému bez výpadků audio výstupu.
 
 
+# Hardware
+
 ## Komponenty
 
-| Komponenta | Popis / Specifikace | Rozhraní / Protokol | Poznámky |
-| :--- | :--- | :--- | :--- |
-| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň |
-| **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka |
-| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  |
-| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ 2 pull-up rezistory|
-| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod (odporový dělič napětí) | obsahuje pull-up rezistory |
-| **3,5mm sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa |
-| **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent |
+| Komponenta | Popis / Specifikace | Rozhraní / Protokol | Poznámky | Odkaz |
+| :--- | :--- | :--- | :--- | :--- |
+| **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 3.3V logická úroveň | _[`Odkaz`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_ |
+| **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | součástí je zesilovač/ anténa pro sluchátka | _[`Odkaz`](https://cdn.sparkfun.com/assets/learn_tutorials/2/7/4/Si4703_datasheet.pdf)_ |
+| **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | podsvícený grafický LCD  | _[`Odkaz`](https://cdn.sparkfun.com/assets/b/1/b/e/f/Nokia5110.pdf)_ |
+| **rotační enkodér** | KY-040 | N/A | 3,3V až 5V logická úroveň/ 2 pull-up rezistory| _[`Odkaz`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ |
+| **tlačítka** | ADKeyboard v3 | pasivní analogový obvod (odporový dělič napětí) | obsahuje pull-up rezistory | _[`Odkaz`]()_ |
+| **3,5mm sluchátka** | 3,5mm jack | analogové audio | slouží jako anténa | N/A |
+| **nepájivé pole** | Breadboard a propojovací vodiče | N/A | propojení komponent | N/A |
 
 
 
@@ -121,11 +123,13 @@ V prostředí Wokwi bylo vytvořeno zapojení komponent a vlastní simulace FM m
 | **Čtení tuneru (Si4703 / RDS)** | Periodické dotazování | ~300–500 ms | Aktualizace stavu ladění, signálu a názvu stanice přes I2C |
 
 
-### Použité knihovny a verze MicroPythonu
+## Použité knihovny a verze MicroPythonu
 
 - **Verze MicroPythonu:** MicroPython v1.22.0+ (oficiální build pro RP2040 / Raspberry Pi Pico W)
-- **Základní vestavěné knihovny:** `machine` (pro obsluhu SPI, I2C, Pin a ADC), `time` (časové prodlevy a měření ticks), `framebuf` (grafický buffer pro LCD)
-- **Komunikační ovladače:** Vlastní modul pro komunikaci s čipem Si4703 přes I2C registr a ovladač řadiče PCD8544 pro displej Nokia 5110.
+- **Základní vestavěné knihovny:**
+  * _[`machine`](https://docs.micropython.org/en/latest/library/machine.html)_ (pro obsluhu SPI, I2C, Pin a ADC)
+  * _[`time`](https://docs.micropython.org/en/latest/library/time.html)_ (časové prodlevy a měření ticks)
+  * _[`framebuf`](https://docs.micropython.org/en/latest/library/framebuf.html)_ (grafický buffer pro LCD)
 
 ### Hierarchická struktura repozitáře
 
@@ -201,6 +205,10 @@ pico-fm-radio/
 - [ ] Natočení demonstračního videa a vložení na Github
 
 ## Reference
+1. [Rasberry Pi Pico Pinout](https://pico.pinout.xyz/)
+2. [Arduino rotary encoder uder manual](https://cdn.shopify.com/s/files/1/0672/9409/files/ky-040-rotary-encoder-datasheet-and-tutorial.pdf)
+
+### Osobní zdroje
 1. [Gravity: Expansion Board for Raspberry Pi Pico / Pico 2](https://www.dfrobot.com/product-2393.html)
 2. [Si4703 FM Radio Receiver](https://pmdway.com/products/si4703-rds-fm-radio-tuner-evaluation-breakout-board?srsltid=AYCX9vKLGemZAaw2HZfW6TDdMDwJ-ylaad4x8F2DHs_wG2OiNv1dP0B4)
 3. [Graphic LCD 84x48 - Nokia 5110](https://naylampmechatronics.com/lcd-alfanumerico/989-display-lcd-nokia-5110.html)
