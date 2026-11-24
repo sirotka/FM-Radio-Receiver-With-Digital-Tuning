@@ -33,17 +33,18 @@ pico-fm-radio/
 │   ├── AN243.pdf
 │   ├── DFR0075_sch.pdf
 │   ├── Nokia5110.pdf
+│   ├── OKY3431.pdf
+│   ├── RP-008276-DS-5-getting-start...
 │   ├── Si4703_Eval_v13.pdf
 │   └── Si4703_datasheet.pdf
 ├── images/
 │   ├── FMradio.drawio.png
+│   ├── Schéma_zapojení.png
 │   ├── blockdiagram.drawio.png
-│   ├── blockdiagram.png
-│   └── image
+│   └── blockdiagram.png
 ├── test/
 │   ├── si4703Library.py
 │   ├── test.py
-│   ├── test1
 │   ├── testButtonsEncoder.py
 │   └── test_display.py
 ├── .gitignore
