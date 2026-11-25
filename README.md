@@ -185,6 +185,27 @@ Program na testování FM přijímače naleznete _[`zde`](https://github.com/sir
 
 Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
 
+<h3>Individual Components Testing</h3>
+<table>
+  <tr>
+    <td align="center"><b>Si4703 Tuner</b></td>
+    <td align="center"><b>Nokia 5110 LCD</b></td>
+    <td align="center"><b>KY-040 Encoder</b></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/videos/VID_20261125_162413.mp4">
+        🎬 Přehrát test_display.mp4
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/videos/VID_20261125_174642.mp4>
+        🎬 Přehrát test_tlačítek.mp4
+      </a>
+    </td>
+  </tr>
+</table>
+
 ### Simulace ve Wokwi
 V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu. Taktéž bylo otestováno ladění a MUTE enkodéru a funkčnost tlačítek ADKeyboard. 
 
