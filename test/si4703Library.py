@@ -4,6 +4,7 @@
 import time
 from machine import Pin
 
+
 class si4703Radio:
 
     # Registry
@@ -84,20 +85,24 @@ class si4703Radio:
         self.scl_pin_num = scl_pin
         self.i2c_addr = i2c_addr
         self.i2c = None
-        
+
         self.reset_pin = Pin(reset_pin, Pin.OUT) if reset_pin is not None else None
         self.irq_pin = Pin(irq_pin, Pin.IN, Pin.PULL_UP) if irq_pin is not None else None
 
         self.si4703_registers = [0] * 16
-        self.si4703_rds_ps = [''] * 8
-        self.si4703_rds_rt = [''] * 64
+        self.si4703_rds_ps = [' '] * 8
+        self.si4703_rds_ps_mask = 0x00  # 8 bitů pro sledování přijatých dvojic/znaků PS
+
+    def _clearRDS(self):
+        self.si4703_rds_ps = [' '] * 8
+        self.si4703_rds_ps_mask = 0x00
 
     def si4703Init(self):
         from machine import I2C
-        
+
         # 1. Nastavení stavů pro 2-wire (I2C) režim před resetem: SDA=0, SCL=1
-        sda_temp = Pin(self.sda_pin_num, Pin.OUT, value=0)
-        scl_temp = Pin(self.scl_pin_num, Pin.OUT, value=1)
+        Pin(self.sda_pin_num, Pin.OUT, value=0)
+        Pin(self.scl_pin_num, Pin.OUT, value=1)
         time.sleep_ms(10)
 
         # 2. Hardwarový reset čipu
@@ -116,7 +121,8 @@ class si4703Radio:
         self.i2c = I2C(self.i2c_id, sda=Pin(self.sda_pin_num), scl=Pin(self.scl_pin_num), freq=100000)
         time.sleep_ms(50)
 
-        # 2. PŮVODNÍ ZBYTEK FUNKCE (zůstává beze změny):
+        self._clearRDS()
+
         self.si4703ReadRegisters()
         self.si4703_registers[self.SI4703_TEST1] = 0x8100  # Zapnutí oscilátoru
         self.si4703WriteRegisters()
@@ -125,10 +131,10 @@ class si4703Radio:
         self.si4703ReadRegisters()
         self.si4703_registers[self.SI4703_POWERCFG] = 0x4001  # Zapnutí čipu
 
-        self.si4703_registers[self.SI4703_SYSCONFIG1] |= (1 << self.SI4703_RDS)  # Zapnutí RDS
-        self.si4703_registers[self.SI4703_SYSCONFIG1] |= (1 << self.SI4703_DE)   # 50us De-emphasis (Evropa)
+        self.si4703_registers[self.SI4703_SYSCONFIG1] |= (1 << self.SI4703_RDS)    # Zapnutí RDS
+        self.si4703_registers[self.SI4703_SYSCONFIG1] |= (1 << self.SI4703_DE)     # 50us De-emphasis (Evropa)
         self.si4703_registers[self.SI4703_SYSCONFIG1] |= (1 << self.SI4703_GPIO2)
-        
+
         if self.irq_pin:
             self.si4703_registers[self.SI4703_SYSCONFIG1] |= (1 << self.SI4703_STCIEN)
 
@@ -150,14 +156,15 @@ class si4703Radio:
         self.si4703Seek(self.SI4703_SEEK_DOWN)
 
     def si4703Seek(self, seek_direction):
+        self._clearRDS()
         self.si4703ReadRegisters()
         self.si4703_registers[self.SI4703_POWERCFG] |= (1 << self.SI4703_SKMODE)
-        
+
         if seek_direction == self.SI4703_SEEK_DOWN:
-            self.si4703_registers[self.SI4703_POWERCFG] &= ~(1 << self.SI4703_SEEK)
+            self.si4703_registers[self.SI4703_POWERCFG] &= ~(1 << self.SI4703_SEEKUP)
         else:
-            self.si4703_registers[self.SI4703_POWERCFG] |= (1 << self.SI4703_SEEK)
-            
+            self.si4703_registers[self.SI4703_POWERCFG] |= (1 << self.SI4703_SEEKUP)
+
         self.si4703_registers[self.SI4703_POWERCFG] |= (1 << self.SI4703_SEEK)
         self.si4703WriteRegisters()
 
@@ -175,6 +182,8 @@ class si4703Radio:
         self.si4703WriteRegisters()
 
     def si4703SetChannel(self, channel):
+        # channel zadávej v MHz * 10, např. 103.4 MHz -> 1034
+        self._clearRDS()
         new_channel = int((channel * 10 - 8750) / 10)
 
         self.si4703ReadRegisters()
@@ -211,6 +220,55 @@ class si4703Radio:
         self.si4703ReadRegisters()
         return (self.si4703_registers[self.SI4703_READCHAN] & self.SI4703_READCHAN_MASK) + 875
 
+    def si4703UpdateRDS(self, max_groups=4):
+        """Načte dostupné RDS skupiny a aktualizuje název stanice (PS)."""
+        updated = False
+        for _ in range(max_groups):
+            self.si4703ReadRegisters()
+            status = self.si4703_registers[self.SI4703_STATUSRSSI]
+
+            # Není připravena nová RDS skupina
+            if (status & (1 << self.SI4703_RDSR)) == 0:
+                break
+
+            rds_b = self.si4703_registers[self.SI4703_RDSB]
+            rds_d = self.si4703_registers[self.SI4703_RDSD]
+
+            group_type = (rds_b >> self.SI4703_GROUPTYPE_OFFST) & 0x1F
+
+            # Skupiny 0A (0) a 0B (1) nesou název stanice (8 znaků, po 2 znacích na paket)
+            if group_type in (0, 1):
+                idx = (rds_b & self.SI4703_TYPE0_INDEX_MASK) * 2
+                c1_code = (rds_d >> 8) & 0x7F
+                c2_code = rds_d & 0x7F
+
+                c1 = chr(c1_code) if 32 <= c1_code <= 126 else ' '
+                c2 = chr(c2_code) if 32 <= c2_code <= 126 else ' '
+
+                if idx + 1 < 8:
+                    self.si4703_rds_ps[idx] = c1
+                    self.si4703_rds_ps[idx + 1] = c2
+                    self.si4703_rds_ps_mask |= (1 << idx) | (1 << (idx + 1))
+                    updated = True
+
+        return updated
+
+    def si4703GetStationName(self, timeout_ms=400):
+        """
+        Vrátí název aktuální stanice (RDS PS) jako řetězec, nebo None,
+        pokud stanice nevysílá RDS nebo je signál příliš slabý.
+        """
+        start = time.ticks_ms()
+        while time.ticks_diff(time.ticks_ms(), start) < timeout_ms:
+            self.si4703UpdateRDS(max_groups=4)
+            # Pokud už máme všech 8 pozic alespoň jednou naplněných, můžeme vrátit výsledek
+            if self.si4703_rds_ps_mask == 0xFF:
+                break
+            time.sleep_ms(25)
+
+        name = "".join(self.si4703_rds_ps).strip()
+        return name if name else None
+
     def si4703ShutDown(self):
         self.si4703ReadRegisters()
         self.si4703_registers[self.SI4703_TEST1] = 0x7C04
@@ -236,4 +294,3 @@ class si4703Radio:
             reg_index += 1
             if reg_index == 0x10:
                 reg_index = 0
-
