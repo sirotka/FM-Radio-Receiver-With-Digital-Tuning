@@ -169,23 +169,23 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 Program na testování tlačítek naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_encoder.py)_
 
-![Testování tlačítel](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/videos/VID_20261125_174642.mp4)
+https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_174642.mp4
 
 ### Displej
 
-Program na testování displeje naleznte _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
+Program na testování displeje naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
 
-Testovaný kódu pro displej naleznete _[`zde`](https://wokwi.com/projects/481611331371420673)_
+Testovaný kód pro displej naleznete _[`zde`](https://wokwi.com/projects/481611331371420673)_
 
 ### FM přijímač
 
 Program na testování FM přijímače naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
 
-![Testování FM přijímače](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/videos/VID_20261125_162413.mp4)
+https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_162413.mp4
 
 Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
 
-<h3>Individual Components Testing</h3>
+### Individual Components Testing
 <table>
   <tr>
     <td align="center"><b>Si4703 Tuner</b></td>
@@ -193,14 +193,19 @@ Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
     <td align="center"><b>KY-040 Encoder</b></td>
   </tr>
   <tr>
-    <td>
-      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/videos/VID_20261125_162413.mp4">
-        🎬 Přehrát test_display.mp4
+    <td align="center">
+      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_162413.mp4">
+        🎬 Přehrát tuner
       </a>
     </td>
-    <td>
-      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/videos/VID_20261125_174642.mp4>
-        🎬 Přehrát test_tlačítek.mp4
+    <td align="center">
+      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/test_display.mp4">
+        🎬 Přehrát displej
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_174642.mp4">
+        🎬 Přehrát enkodér
       </a>
     </td>
   </tr>
