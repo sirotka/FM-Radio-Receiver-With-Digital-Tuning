@@ -169,8 +169,6 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 Program na testování tlačítek naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_encoder.py)_
 
-https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_174642.mp4
-
 ### Displej
 
 Program na testování displeje naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
@@ -181,11 +179,9 @@ Testovaný kód pro displej naleznete _[`zde`](https://wokwi.com/projects/481611
 
 Program na testování FM přijímače naleznete _[`zde`](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/test/test_display.py)_
 
-https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_162413.mp4
-
 Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
 
-### Individual Components Testing
+### Individuální testování komponent
 <table>
   <tr>
     <td align="center"><b>Si4703 Tuner</b></td>
@@ -193,20 +189,14 @@ Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
     <td align="center"><b>KY-040 Encoder</b></td>
   </tr>
   <tr>
-    <td align="center">
-      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_162413.mp4">
-        🎬 Přehrát tuner
-      </a>
+    <td align="center" width="33%">
+      <video src="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_162413.mp4" controls width="100%"></video>
     </td>
-    <td align="center">
-      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/test_display.mp4">
-        🎬 Přehrát displej
-      </a>
+    <td align="center" width="33%">
+      <video src="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/test_display.mp4" controls width="100%"></video>
     </td>
-    <td align="center">
-      <a href="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_174642.mp4">
-        🎬 Přehrát enkodér
-      </a>
+    <td align="center" width="33%">
+      <video src="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_174642.mp4" controls width="100%"></video>
     </td>
   </tr>
 </table>
