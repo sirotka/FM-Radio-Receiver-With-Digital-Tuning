@@ -60,7 +60,7 @@ pico-fm-radio/
 ## Komponenty
 
 | Komponenta | Popis / Specifikace | Rozhraní / Protokol | Množství | Poznámky | Odkazy |
-| :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | **Raspberry Pi Pico** | RP2040 mikrokontrolér | RP2040 dvoujádrový ARM Cortex-M0+ | 1 | 3.3V logická úroveň | _[`Datasheet`](https://pip-assets.raspberrypi.com/categories/686-raspberry-pi-pico-w/documents/RP-008312-DS-3-pico-w-datasheet.pdf)_ | 
 | **FM modul** | Si4703 FM Tuner | I2C + 3,5mm Jack | 1 | součástí je zesilovač/ anténa pro sluchátka|  _[`Datasheet`](https://cdn.sparkfun.com/assets/learn_tutorials/2/7/4/Si4703_datasheet.pdf)_ |
 | **displej** | Nokia 5110 Display (PCD8544) | SPI (84x48 Graphic LCD) | 1 | podsvícený grafický LCD | _[`Datasheet`](https://cdn.sparkfun.com/assets/b/1/b/e/f/Nokia5110.pdf)_ |
