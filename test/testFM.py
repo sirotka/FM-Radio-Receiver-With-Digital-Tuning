@@ -5,7 +5,7 @@ from Si4703Library import si4703Radio
 def main():
     
     # Parametry: (i2c_objekt, i2c_adresa, reset_pin, irq_pin)
-    radio = si4703Radio(0, sda_pin=4, scl_pin=5, i2c_addr=0x10, reset_pin=15, irq_pin=14)
+    radio = si4703Radio(0, sda_pin=4, scl_pin=5, i2c_addr=0x10, reset_pin=21, irq_pin=22)
     
     print("Inicializace rádia...")
     radio.si4703Init()
@@ -23,9 +23,17 @@ def main():
             if kb_input == "1":
                 radio.si4703SeekDown()
                 print("Naladěno:", radio.si4703GetChannel() / 10.0, "MHz")
+                
+
+
+
             elif kb_input == "2":
                 radio.si4703SeekUp()
                 print("Naladěno:", radio.si4703GetChannel() / 10.0, "MHz")
+                
+
+
+
             elif kb_input == "3":
                 radio.si4703SetChannel(987)
                 print("Naladěno:", radio.si4703GetChannel() / 10.0, "MHz")
@@ -35,6 +43,13 @@ def main():
             elif kb_input == "-":
                 radio.si4703SetVolume(radio.si4703GetVolume() - 1)
                 print("Hlasitost:", radio.si4703GetVolume())
+                
+            nazev = radio.si4703GetStationName(timeout_ms=2000)
+            if nazev:
+                print("Stanice:", nazev)
+            else:
+                print("Čekám na RDS název...")
+            
             
     except KeyboardInterrupt:
         print("\nUkončování programu...")[cite: 2]
