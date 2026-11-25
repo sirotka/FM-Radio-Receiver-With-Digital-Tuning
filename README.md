@@ -240,10 +240,10 @@ V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a 
 - [x] Nahrát kód pro displej
 
 ###  3. Týden
-- [ ] Vytvoření záznamu testovaných částí (foto či video) -> za minulý týden
-- [ ] Sestavení prototypu s klíčovými funkcemi
+- [x] Vytvoření záznamu testovaných částí (foto či video) -> za minulý týden
+- [x] Sestavení prototypu s klíčovými funkcemi
 - [ ] Záznamy a řešené problémy integrace
-- [ ] Doplnění ovládání RDS do knihovny FM přijímače a jeho otestování
+- [x] Doplnění ovládání RDS do knihovny FM přijímače a jeho otestování
 
 ### 4. Týden
 - [ ] Výsledky testů
