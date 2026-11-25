@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "author": "Ekaterina Krupenko",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20260406-v1.28.0" }
+    },
+    {
+      "type": "board-nokia-5110",
+      "id": "lcd1",
+      "top": 83.12,
+      "left": 109.64,
+      "rotate": 0,
+      "attrs": {}
+    },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": 1.7, "left": -183.2, "attrs": {} },
+    { "type": "chip-si4703", "id": "chip1", "top": 10.62, "left": 120, "attrs": {} },
+    { "type": "chip-adkeyboard", "id": "adkeyboard1", "top": 269.82, "left": -216, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnUp",
+      "top": 121.4,
+      "left": -86.4,
+      "attrs": { "color": "green", "xray": "1", "label": "UP" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnDown",
+      "top": 188.6,
+      "left": -86.4,
+      "attrs": { "color": "green", "xray": "1", "label": "DOWN" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnVolUp",
+      "top": 121.4,
+      "left": -297.6,
+      "attrs": { "color": "green", "xray": "1", "label": "VOL+" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnVolDown",
+      "top": 188.6,
+      "left": -307.2,
+      "attrs": { "color": "green", "xray": "1", "label": "VOL-" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnOk",
+      "top": 150.2,
+      "left": -182.4,
+      "attrs": { "color": "green", "xray": "1", "label": "OK" }
+    }
+  ],
+  "connections": [
+    [ "encoder1:CLK", "pico:GP14", "green", [] ],
+    [ "encoder1:DT", "pico:GP15", "blue", [] ],
+    [ "encoder1:SW", "pico:GP13", "orange", [] ],
+    [ "encoder1:VCC", "pico:3V3", "red", [] ],
+    [ "encoder1:GND", "pico:GND.4", "black", [] ],
+    [ "chip1:SDIO", "pico:GP4", "green", [] ],
+    [ "chip1:SCLK", "pico:GP5", "blue", [] ],
+    [ "chip1:RST", "pico:GP6", "orange", [] ],
+    [ "chip1:VCC", "pico:3V3", "red", [] ],
+    [ "chip1:GND", "pico:GND.2", "black", [] ],
+    [ "lcd1:CLK", "pico:GP18", "green", [] ],
+    [ "lcd1:DIN", "pico:GP19", "blue", [] ],
+    [ "lcd1:CE", "pico:GP17", "orange", [] ],
+    [ "lcd1:DC", "pico:GP16", "purple", [] ],
+    [ "lcd1:RST", "pico:GP20", "yellow", [] ],
+    [ "lcd1:VCC", "pico:3V3", "red", [] ],
+    [ "lcd1:BL", "pico:3V3", "red", [] ],
+    [ "lcd1:GND", "pico:GND.5", "black", [] ],
+    [ "btnVolUp:1.l", "adkeyboard1:VOL_UP", "green", [] ],
+    [ "btnVolUp:2.l", "pico:GND.1", "black", [] ],
+    [ "btnVolDown:1.l", "adkeyboard1:VOL_DOWN", "green", [] ],
+    [ "btnVolDown:2.l", "pico:GND.1", "black", [] ],
+    [ "btnOk:1.l", "adkeyboard1:OK", "green", [] ],
+    [ "btnOk:2.l", "pico:GND.1", "black", [] ],
+    [ "btnUp:1.l", "adkeyboard1:UP", "green", [] ],
+    [ "btnUp:2.l", "pico:GND.1", "black", [] ],
+    [ "btnDown:1.l", "adkeyboard1:DOWN", "green", [] ],
+    [ "btnDown:2.l", "pico:GND.1", "black", [] ],
+    [ "adkeyboard1:OUT", "pico:GP26", "purple", [] ],
+    [ "adkeyboard1:VCC", "pico:3V3", "red", [] ],
+    [ "adkeyboard1:GND", "pico:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

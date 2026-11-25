@@ -1,0 +1,17 @@
+
+{
+  "name": "Si4703 FM Stereo Tuner",
+  "author": "FM Radio Project",
+  "pins": [
+    "VCC",
+    "GND",
+    "SCLK",
+    "SDIO",
+    "RST",
+    "SEN",
+    "GPIO2",
+    "LOUT",
+    "ROUT"
+  ],
+  "controls": []
+}

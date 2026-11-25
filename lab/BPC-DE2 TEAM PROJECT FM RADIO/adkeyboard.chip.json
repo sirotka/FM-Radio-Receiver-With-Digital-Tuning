@@ -1,0 +1,15 @@
+{
+  "name": "ADKeyboard v3",
+  "author": "FM Radio Project",
+  "pins": [
+    "VOL_UP",
+    "VOL_DOWN",
+    "OK",
+    "UP",
+    "DOWN",
+    "OUT",
+    "VCC",
+    "GND"
+  ],
+  "controls": []
+}
