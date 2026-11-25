@@ -31,6 +31,7 @@ Cílem finálního zařízení je vytvořit plně funkční, stabilní a přenos
 pico-fm-radio/
 ├── docs/
 │   ├── AN243.pdf
+│   ├── DFR0075_Web.pdf
 │   ├── DFR0075_sch.pdf
 │   ├── Nokia5110.pdf
 │   ├── OKY3431.pdf
@@ -39,14 +40,15 @@ pico-fm-radio/
 │   └── Si4703_datasheet.pdf
 ├── images/
 │   ├── FMradio.drawio.png
+│   ├── Schéma zapojení.png
 │   ├── Schéma_zapojení.png
 │   ├── blockdiagram.drawio.png
 │   └── blockdiagram.png
 ├── test/
 │   ├── si4703Library.py
 │   ├── test.py
-│   ├── testButtonsEncoder.py
-│   └── test_display.py
+│   ├── test_display.py
+│   └── test_encoder.py
 ├── .gitignore
 ├── LICENSE
 └── README.md
