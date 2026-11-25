@@ -1,0 +1,17 @@
+delta = encoder.get_delta()
+
+        if delta != 0:
+            if delta < 0
+                radio.si4703SeekDown()
+            else 
+                radio.si4703SeekUp()
+            
+
+            
+            station = "MANUAL"
+            preset_selection = False
+
+            print(
+                "Frequency:",radio.si4703GetChannel() / 10.0,"MHz")
+
+            update_display()
