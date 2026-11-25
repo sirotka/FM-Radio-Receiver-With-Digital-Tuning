@@ -166,7 +166,7 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 ## Testování
 
-***Videa či fotografie budou dodatečně dodány (k ověření funkčnosti), neboť se na ně minule zapomnělo.***
+***Videa či fotografie fyzického testováni v laboratoři budou dodatečně dodány (k ověření funkčnosti), neboť se na ně minule zapomnělo.***
 
 ### Tlačítka a enkodér
 
@@ -185,7 +185,7 @@ Program na testování FM přijímače naleznete _[`zde`](https://github.com/sir
 Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
 
 ### Simulace ve Wokwi
-V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu. 
+V prostředí Wokwi bylo vytvořeno zapojení všech používaných komponent a vlastní simulace FM modulu Si4703. Byla otestována komunikace I2C a digitální ladění frekvence pomocí MicroPythonu. Taktéž bylo otestováno ladění a MUTE enkodéru a funkčnost tlačítek ADKeyboard. 
 
 **Odkaz na simulaci naleznete _[`zde`](https://wokwi.com/projects/480485965769085953)_**
 
