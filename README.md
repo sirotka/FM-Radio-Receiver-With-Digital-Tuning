@@ -111,7 +111,7 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 ### Schéma zapojení
 
-![Schéma zapojení](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/Sch%C3%A9ma_zapojen%C3%AD.png)
+![Schéma zapojení](https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/blob/main/images/Sch%C3%A9ma%20zapojen%C3%AD.png)
 
 
 ## Tabulka mapování hardwarových pinů 
