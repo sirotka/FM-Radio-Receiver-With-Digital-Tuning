@@ -142,13 +142,21 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 | RST | GP20 | Blok **Digital** (Pin GP20) | Hardwarový reset displeje |
 | BL (LIGHT) | 3V3 | Blok **Digital** (Pin GP20 / 3V3) | Podsvícení displeje (připojeno na 3,3 V) |
 
-### _ADKeyboard v3_
+### _ADKeyboard v3_ (první)
 
 | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- |
 | VCC | 3V3 | Blok **Analog** (Pin GP26 / 3V3) | Napájení odporové sítě tlačítek (3,3 V) |
 | GND | GND | Blok **Analog** (Pin GP26 / GND) | Společná zem |
 | OUT (S) | GP26 | Blok **Analog** (Pin GP26 / A) | Analogový vstup ADC0 pro čtení 5 tlačítek |
+
+### _ADKeyboard v3_ (druhá)
+
+| Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
+| :--- | :--- | :--- | :--- |
+| VCC | 3V3 | Blok **Analog** (Pin GP27 / 3V3) | Napájení odporové sítě tlačítek (3,3 V) |
+| GND | GND | Blok **Analog** (Pin GP27 / GND) | Společná zem |
+| OUT (S) | GP26 | Blok **Analog** (Pin GP27 / A) | Analogový vstup ADC0 pro čtení 5 tlačítek |
 
 ### _Rotační enkodér KY-040_
 
