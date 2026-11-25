@@ -158,17 +158,6 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 | GND | GND | Blok **Analog** (Pin GP27 / GND) | Společná zem |
 | OUT (S) | GP26 | Blok **Analog** (Pin GP27 / A) | Analogový vstup ADC0 pro čtení 5 tlačítek |
 
-### _Rotační enkodér KY-040_
-
-| Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
-| :--- | :--- | :--- | :--- |
-| + (VCC) | 3V3 | Blok **Digital** (Pin GP14 / 3V3) | Napájení pull-up rezistorů enkodéru (3,3 V) |
-| GND | GND | Blok **Digital** (Pin GP14 / GND) | Společná zem |
-| CLK | GP14 | Blok **Digital** (Pin GP14 / D) | Kanál A kvadraturního signálu (pro IRQ) |
-| DT | GP15 | Blok **Digital** (Pin GP15 / D) | Kanál B kvadraturního signálu |
-| SW | GP13 | Blok **Digital** (Pin GP13 / D) | Integrované tlačítko enkodéru (např. pro Mute) |
-
-
 # Software
 
 
