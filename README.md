@@ -124,9 +124,10 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 | :--- | :--- | :--- | :--- |
 | VCC (3.3V) | 3V3 | Blok **I2C0** (Pin 3V3) | Napájení modulu (3,3 V) |
 | GND | GND | Blok **I2C0** (Pin GND) | Společná zem |
-| SDIO (SDA) | GP4 | Blok **I2C0** (Pin D/4) | I2C datová sběrnice |
-| SCLK (SCL) | GP5 | Blok **I2C0** (Pin C/5) | I2C hodinová sběrnice |
-| RST | GP6 | Vnitřní lišta (GP6) | Resetovací pin pro aktivaci I2C režimu čipu |
+| SDIO (SDA) | GP4 | Vnitřní lišta (GP4) | I2C datová sběrnice |
+| SCLK (SCL) | GP5 | Vnitřní lišta (GP5) | I2C hodinová sběrnice |
+| RST | GP21 | Blok **Digital** (Pin GP21) | Resetovací pin pro aktivaci I2C režimu čipu |
+| GPIO2 | GP22 | Blok **Digital** (Pin GP22) |  |
 
 ### _Nokia 5110 LCD_
 
