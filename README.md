@@ -133,8 +133,8 @@ Blokové schéma znázorňuje propojení jednotlivých komponent FM přijímače
 
 | Pin komponenty | Pico Pin Name | Blok / Konektor na desce | Funkce / Popis zapojení |
 | :--- | :--- | :--- | :--- |
-| VCC | 3V3 | Blok **SPI0** (Pin 3V3) | Napájení displeje (3,3 V) |
-| GND | GND | Blok **SPI0** (Pin GND) | Společná zem |
+| VCC | 3V3 | Blok **Digital** (Pin 3V3) | Napájení displeje (3,3 V) |
+| GND | GND | Blok **Digital** (Pin GND) | Společná zem |
 | CLK (SCK) | GP18 | Blok **SPI0** (Pin SCK/18) | SPI hodiny (Serial Clock) |
 | DIN (MOSI) | GP19 | Blok **SPI0** (Pin MO/19) | SPI data (Master Out / Data In) |
 | CE (CS) | GP17 | Blok **SPI0** (Pin SS/17) | Chip Select / Aktivace displeje |
