@@ -81,19 +81,13 @@ Základem rádiové části je integrovaný digitální tuner _[`Si4703`](https:
 - ***Anténa***: Jako přijímací anténa pro FM signál slouží sluchátkový kabel.
 
 
-### _Ladění frekvence_
-Pro plynulé a přesné manuální ovládání slouží rotační enkodér _[`KY-040`](https://okystar.com/wp-content/uploads/2017/08/OKY3431.pdf)_ připojený na digitální vstupy.
-- ***Obsluha v reálném čase***: Snímání otáčení je ošetřeno pomocí hardwarových přerušení (IRQ) na hranu signálu CLK. Díky tomu mikrokontrolér spolehlivě zachytí každý krok enkodéru i při rychlém otočení, aniž by ho zpomalovalo vykreslování grafiky.
-- ***Krokování frekvence***: Každý zaznamenaný impuls posune naladěnou frekvenci o pevný krok a odešle příkaz k přeladění do tuneru. Integrované tlačítko enkodéru (SW) navíc funguje jako `MUTE` (ON nebo OFF hlasitosti).
-
-
-### _Ovládání hlasitosti a správa předvoleb_
-Modul _[`ADKeyboard v3`](https://media.digikey.com/pdf/Data%20Sheets/DFRobot%20PDFs/DFR0075_Web.pdf)_ sdružuje pět mikrospínačů připojených na jediný analogový vstup ADC0. Každé tlačítko aktivuje jiný odporový dělič a vytvoří na vstupu unikátní napěťovou úroveň (0–3,3 V). Software hodnoty filtruje proti zákmitem (*debouncing*) a rozděluje je do těchto funkcí:
-## První klávesnice
+### _Ladění frekvence, ovládání hlasitosti a správa předvoleb_
+Modul _[`ADKeyboard v3`](https://media.digikey.com/pdf/Data%20Sheets/DFRobot%20PDFs/DFR0075_Web.pdf)_ sdružuje pět mikrospínačů připojených na jediný analogový vstup ADC0. Každé tlačítko aktivuje jiný odporový dělič a vytvoří na vstupu unikátní napěťovou úroveň (0–3,3 V). Software hodnoty filtruje proti zákmitu (*debouncing*) a rozděluje je do níže popsaných funkcí:
+#### První klávesnice
 - ***Tlačítka 1 a 2 (Volume UP a Volume DOWN)***: Slouží k přímé úpravě hlasitosti v registru tuneru s okamžitou odezvou na obrazovce.
 - ***Tlačítka 3 a 4 (Station DOWN a Station UP)***: Slouží k přeladění na nejbližší nižší, respetive vyšší, stanici.
 - ***Tlačítko 5 (Mute)***: Slouží k vypnutí a opětovnému zapnutí hlasitosti rádia.
-## Druhá klávesnice
+#### Druhá klávesnice
 - ***Tlačítka 1 a 2 (List UP a List DOWN)***: Slouží k listování v seznamu uložených stanic. Samotný posun kurzoru ještě nemění frekvenci, dokud uživatel volbu nepotvrdí.
 - ***Tlačítko 3 (Back)***: Slouží k vystoupení ze seznamu uložených stanic.
 - ***Tlačítko 4 (Save)***: Uloží právě naladěnou stanici do seznamu stanic.
