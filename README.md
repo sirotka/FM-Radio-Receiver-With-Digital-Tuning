@@ -89,9 +89,15 @@ Pro plynulé a přesné manuální ovládání slouží rotační enkodér _[`KY
 
 ### _Ovládání hlasitosti a správa předvoleb_
 Modul _[`ADKeyboard v3`](https://media.digikey.com/pdf/Data%20Sheets/DFRobot%20PDFs/DFR0075_Web.pdf)_ sdružuje pět mikrospínačů připojených na jediný analogový vstup ADC0. Každé tlačítko aktivuje jiný odporový dělič a vytvoří na vstupu unikátní napěťovou úroveň (0–3,3 V). Software hodnoty filtruje proti zákmitem (*debouncing*) a rozděluje je do těchto funkcí:
-- ***Tlačítka 1 a 2 (VOL+ a VOL-)***: Slouží k přímé úpravě hlasitosti v registru tuneru s okamžitou odezvou na obrazovce. Pomocí tlačítka enkodéru může při jeho stlačení vypnout či zapnout hlasitost. 
-- ***Tlačítka 3 a 4 (UP a DOWN)***: Slouží k listování v seznamu uložených stanic. Samotný posun kurzoru ještě nemění frekvenci, dokud uživatel volbu nepotvrdí.
-- ***Tlačítko 5 (OK / ENTER)***: Slouží k potvrzení vybrané stanice ze seznamu, okamžitému přeladění tuneru na tuto frekvenci, případně k uložení stanice do paměti.
+## První klávesnice
+- ***Tlačítka 1 a 2 (Volume UP a Volume DOWN)***: Slouží k přímé úpravě hlasitosti v registru tuneru s okamžitou odezvou na obrazovce.
+- ***Tlačítka 3 a 4 (Station DOWN a Station UP)***: Slouží k přeladění na nejbližší nižší, respetive vyšší, stanici.
+- ***Tlačítko 5 (Mute)***: Slouží k vypnutí a opětovnému zapnutí hlasitosti rádia.
+## Druhá klávesnice
+- ***Tlačítka 1 a 2 (List UP a List DOWN)***: Slouží k listování v seznamu uložených stanic. Samotný posun kurzoru ještě nemění frekvenci, dokud uživatel volbu nepotvrdí.
+- ***Tlačítko 3 (Back)***: Slouží k vystoupení ze seznamu uložených stanic.
+- ***Tlačítko 4 (Save)***: Uloží právě naladěnou stanici do seznamu stanic.
+- ***Tlačítko 5 (Choose)***: Přeladí rádio na právě vybranou stanici v seznamu.
 
 
 ### _Uživatelské rozhraní_
