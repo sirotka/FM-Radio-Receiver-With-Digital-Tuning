@@ -184,16 +184,12 @@ Výstupem je výpis právě naladěné frekvence a nastavené hlasitosti.
 ### Individuální testování komponent
 <table>
   <tr>
-    <td align="center"><b>Si4703 Tuner</b></td>
-    <td align="center"><b>Nokia 5110 LCD</b></td>
-    <td align="center"><b>KY-040 Encoder</b></td>
+    <td align="center"><b>Si4703 FM přijímač/b></td>
+    <td align="center"><b>KY-040 Tlačítka</b></td>
   </tr>
   <tr>
     <td align="center" width="33%">
       <video src="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_162413.mp4" controls width="100%"></video>
-    </td>
-    <td align="center" width="33%">
-      <video src="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/test_display.mp4" controls width="100%"></video>
     </td>
     <td align="center" width="33%">
       <video src="https://github.com/sirotka/FM-Radio-Receiver-With-Digital-Tuning/raw/main/images/videos/VID_20261125_174642.mp4" controls width="100%"></video>
