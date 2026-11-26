@@ -37,6 +37,11 @@ frequency = 995
 volume = 10
 muted = False
 station = "MANUAL"
+lastKeyPress = time.ticks_ms()
+keyPressInterval = 200
+lastRdsCheck = time.ticks_ms()
+rdsPollInterval_ms = 150
+listIsActive = False
 
 stations = []  # prázdný list na začátku
 def add_station(name, freq):
@@ -112,7 +117,7 @@ def save_station(name, freq):
 
 #Zjistí název stanice pomocí RDS, pokud nezjistí, tak vrátí název původní stanice
 def getStation(oldStation):
-    station = radio.si4703GetStationName(timeout_ms=2000)
+    station = radio.si4703PollStationName(max_groups=4)
     if station:
         return station
     else:
@@ -140,7 +145,64 @@ def update_display(updateData = True):
         si4703_ok=True,
         muted=muted
     )
-
+def radioControlByKeyboard(key):
+    # Volume +
+    if key == "volumeUp":
+        muted = False
+        radio.si4703SetVolume(volume + 1)
+        update_display()
+        print("Volume:",volume)
+    
+    # Volume -
+    elif key == "volumeDown":
+        muted = False
+        radio.si4703SetVolume(volume - 1)
+        update_display()
+        print("Volume:",volume)
+    
+    # tune frequency up
+    elif key == "stationUp":
+        radio.si4703SeekUp()
+        update_display()
+        print("Selected: ",station)
+                    
+    # tune frequency down
+    elif key == "stationDown":
+        radio.si4703SeekDown()
+        update_display()
+        print("Selected: ",station)
+                
+    elif key == "mute":
+        muted = not muted
+        if muted:
+            radio.si4703SetVolume(0)
+        else:
+            radio.si4703SetVolume(volume)
+        update_display(updateData=False)
+        print("Muted: ",muted)
+                    
+    if key == "listUp":
+        listIsActive =True
+        station, frequency = next_station(frequency, station, "up")
+        update_display(updateData = False)
+        
+    elif key == "listDown":
+        listIsActive =True
+        station, frequency = next_station(frequency, station, "down")
+        update_display(updateData = False)
+    
+    elif key == "back":
+        listIsActive = False
+        update_display()  
+                    
+    elif key == "save":
+        save_station(station, frequency)
+                    
+    elif key == "choose":
+        radio.si4703SetChannel(frequency)
+        listIsActive = False
+        update_display()
+    
 print("FM Radio")
 print("Initializing Si4703...")
 
@@ -183,61 +245,19 @@ update_display()
 try:
     while True:
         
-        time.sleep(0.1)
-        # ADKeyboard
-        key = getKey()
-
-        # Volume +
-        if key == "volumeUp":
-            muted = False
-            radio.si4703SetVolume(volume + 1)
-            update_display()
-            print("Volume:",volume)
-
-        # Volume -
-        elif key == "volumeDown":
-            muted = False
-            radio.si4703SetVolume(volume - 1)
-            update_display()
-            print("Volume:",volume)
-
-        # tune frequency up
-        elif key == "stationUp":
-            radio.si4703SeekUp()
-            update_display()
-            print("Selected: ",station)
-            
-        # tune frequency down
-        elif key == "stationDown":
-            radio.si4703SeekDown()
-            update_display()
-            print("Selected: ",station)
+        time.sleep(0.05)
+        currentTime = time.ticks_ms()
         
-        elif key == "mute":
-            muted = not muted
-            if muted:
-                radio.si4703SetVolume(0)
-            else:
-                radio.si4703SetVolume(volume)
-            update_display(updateData=False)
-            print("Muted: ",muted)
-            
-        if key == "listUp":
-            station, frequency = next_station(frequency, station, "up")
-            update_display(updateData = False)
-        elif key == "listDown":
-            station, frequency = next_station(frequency, station, "down")
-            update_display(updateData = False)
+        if (time.ticks_diff(currentTime, lastRdsCheck) >= rdsPollInterval_ms) and listIsActive == False:
+            lastRdsCheck = currentTime
+            update_display(updateData=True)
+                
+        # ADKeyboard        
+        if time.ticks_diff(currentTime, lastKeyPress) >= keyPressInterval:
+            lastKeyPress = currentTime
+            radioControlByKeyboard(getKey())
 
-        elif key == "back":
-            update_display()  
             
-        elif key == "save":
-            save_station(station, frequency)
-            
-        elif key == "choose":
-            radio.si4703SetChannel(frequency)
-            update_display()
 
 except KeyboardInterrupt:
 
