@@ -268,6 +268,15 @@ class si4703Radio:
 
         name = "".join(self.si4703_rds_ps).strip()
         return name if name else None
+    
+    def si4703PollStationName(self, max_groups=4):
+        """
+        Neblokující kontrola RDS: načte až `max_groups` dostupných skupin
+        a vrátí aktuálně poskládaný název stanice, nebo None, pokud zatím nic není.
+        """
+        self.si4703UpdateRDS(max_groups=max_groups)
+        name = "".join(self.si4703_rds_ps).strip()
+        return name if name else None
 
     def si4703ShutDown(self):
         self.si4703ReadRegisters()
